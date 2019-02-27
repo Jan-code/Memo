@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width" />
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>Hello APP</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <style>
+        body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{
+            margin:0;padding:0
+        }
+        ul, ol{
+            list-style: none;
+        }
+        /*你最常关注的*/
+        header{
+            margin-top: 60px;
+            margin-left: 25px;
+            font-size: 27px;
+            color: #222222;
+        }
+        /*单个分类的li*/
+        .classify_specific{
+            margin-top: 20px;
+            margin-left: 25px;
+            margin-right: 9px;
+        }
+
+        /*分类标题*/
+        .classify .classify_title{
+            margin-bottom: 6px;
+            font-size: 23px;
+            color: #222222;
+        }
+        /*每个详细的分类子项*/
+        .item{
+            display: inline-block;
+            margin-top: 16px;
+            margin-right: 16px;
+        }
+        .item input[type="checkbox"]{
+            width: 0px;
+            visibility: hidden;}
+        .item input[type="checkbox"]+p{
+            display:inline-block;
+            height: 32px;
+            padding-left: 13px;
+            padding-right: 13px;
+            border: 1px solid #707070;
+            border-radius: 5px;
+            background-color: white;
+            color: #222222;
+            font-size: 14px;
+            line-height: 32px;
+        }
+        .item input[type="checkbox"]:checked+p{
+            background-color: #707070;
+            color: #ededed;
+        }
+        .bottom{
+            height: 80px;
+        }
+        /*底部的开始阅读按钮*/
+        footer{
+            position: fixed;
+            bottom: 13px;
+            left: 50%;
+            margin-left: -105px;
+            background-color: #222;
+            width: 210px;
+            height: 43px;
+            border-radius: 21px;
+        }
+        footer p{
+            text-align: center;
+            line-height: 43px;
+            font-size: 16px;
+            color: white;
+        }
+    </style>
+
+</head>
+<body>
+<header>
+    <p>你最常关注的--</p>
+</header>
+<div class="content">
+    <ul class="classify">
+        <li class="classify_specific">
+            <p class="classify_title">娱乐</p>
+            <ul class="checklist">
+                <li class="item"><label><input type="checkbox" name="concert" /><p>演唱会</p></label></li><li class="item"><label><input type="checkbox" name="music" /><p>音乐</p></label></li><li class="item"><label><input type="checkbox" name="film" /><p>电影</p></label></li><li class="item"><label><input type="checkbox" name="food" /><p>美食</p></label></li>
+            </ul>
+        </li>
+        <li class="classify_specific">
+            <p class="classify_title">健康</p>
+            <ul class="checklist">
+                <li class="item"><label><input type="checkbox" name="nightRunning" /><p>夜跑</p></label></li><li class="item"><label><input type="checkbox" name="fitness" /><p>健身</p></label></li><li class="item"><label><input type="checkbox" name="aerobics" /><p>有氧运动</p></label></li><li class="item"><label><input type="checkbox" name="swim" /><p>游泳</p></label></li><li class="item"><label><input type="checkbox" name="yoga" /><p>瑜伽</p></label></li>
+            </ul>
+        </li>
+        <li class="classify_specific">
+            <p class="classify_title">学习效率</p>
+            <ul class="checklist">
+                <li class="item"><label><input type="checkbox" name="book" /><p>读书</p></label></li><li class="item"><label><input type="checkbox" name="efficientyTool" /><p>效率工具</p></label></li><li class="item"><label><input type="checkbox" name="psychology" /><p>心理</p></label></li>
+            </ul>
+        </li>
+
+        <li class="classify_specific">
+            <p class="classify_title">学习效率</p>
+            <ul class="checklist">
+                <li class="item"><label><input type="checkbox" name="book" /><p>读书</p></label></li><li class="item"><label><input type="checkbox" name="efficientyTool" /><p>效率工具</p></label></li><li class="item"><label><input type="checkbox" name="psychology" /><p>心理</p></label></li>
+            </ul>
+        </li>
+
+        <li class="classify_specific">
+            <p class="classify_title">学习效率</p>
+            <ul class="checklist">
+                <li class="item"><label><input type="checkbox" name="book" /><p>读书</p></label></li><li class="item"><label><input type="checkbox" name="efficientyTool" /><p>效率工具</p></label></li><li class="item"><label><input type="checkbox" name="psychology" /><p>心理</p></label></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<div class="bottom"></div>
+
+<footer>
+    <p>开始阅读</p>
+</footer>
+</body>
+</html>

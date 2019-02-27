@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width" />
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>登陆</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <style>
+        .login{
+            position: relative;
+            left: 50%;
+            margin-left: -150px;
+            margin-top: 197px;
+            width: 300px;
+            height: 110px;
+        }
+
+        .username,.password{
+            position: absolute;
+            width: 250px;
+            height: 54px;
+            border: 2px solid black;
+        }
+        .username{
+            border-right-style: none;
+            border-radius: 27px 0px 0px 27px;
+        }
+        .password{
+            margin-left: 50px;
+            top: 56px;
+            border-left-style: none;
+            border-radius: 0px 27px 27px 0px;
+        }
+        .username .phone_img{
+            position: absolute;
+            left: 27px;
+            top: 50%;
+            margin-top: -15px;
+            width: 30px;
+            height: 30px;
+            background: url("./../image/phone.png");
+        }
+        .password .password_img{
+            position: absolute;
+            right: 27px;
+            top: 50%;
+            margin-top: -15px;
+            width: 30px;
+            height: 30px;
+            background: url("./../image/verification.png");
+        }
+
+        .login input{
+            position: absolute;
+            width: 180px;
+            height: 52px;
+            border: none;
+            font-size: 24px;
+            color: #222222;
+            outline: none;
+        }
+        .username input{
+            left: 60px;
+        }
+        .password input{
+            right: 60px;
+        }
+        .login_logo{
+            position: relative;
+            left: 50%;
+            margin-top: 81px;
+            margin-left: -105px;
+            background-color: #222;
+            width: 210px;
+            height: 43px;
+            border-radius: 21px;
+        }
+        .login_logo p{
+            text-align: center;
+            line-height: 43px;
+            font-size: 24px;
+            color: white;
+        }
+
+        .register{
+            position: relative;
+            left: 50%;
+            margin-top: 24px;
+            margin-left: -43px;
+            width: 85px;
+            height: 22px;
+        }
+        .register p{
+            text-align: center;
+            line-height: 22px;
+            font-size: 18px;
+            color: #515151;
+            border-bottom: 1px solid #b4b4b4;
+        }
+
+        .login_others{
+            position: absolute;
+            left: 50%;
+            bottom: 34px;
+            margin-left: -60px;
+        }
+        .login_others div{
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+        }
+        .login_others .qq{
+            margin-right: 60px;
+            background: url("./../image/QQ.png") no-repeat center;
+
+        }
+        .login_others .wechat{
+            background: url("./../image/wechat.png") no-repeat center;
+        }
+    </style>
+</head>
+<body>
+<!--用户名及验证码输入部分-->
+<div class="login">
+    <div class="username">
+        <div class="phone_img"></div>
+        <!--设置为只能输入数字-->
+        <input type="text" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+    </div>
+    <div class="password">
+        <div class="password_img"></div>
+        <!--验证码只能输入数字-->
+        <input type="text" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+    </div>
+</div>
+<!--登陆按钮-->
+<div class="login_logo">
+    <p>LOGIN</p>
+</div>
+<!--注册按钮-->
+<div class="register">
+    <p>REGISTER</p>
+</div>
+<!--其他登陆方式-->
+<div class="login_others">
+    <div class="qq"></div>
+    <div class="wechat"></div>
+</div>
+</body>
+</html>
