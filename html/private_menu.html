@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width" />
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>Hello APP</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <style>
+        body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{
+            margin:0;padding:0
+        }
+        a{
+            text-decoration: none;
+            color: #ccc;
+        }
+        ul, ol{
+            list-style: none;
+        }
+        html,body{
+            font-size:14px;
+            font-family:"宋体";
+            color: #222;
+            background-color: #000;
+            width: 100%;
+            height: 100%;
+
+        }
+        .menu{
+            height: 100%; padding: 120px 0 0; box-sizing: border-box ; position: relative;
+        }
+        header{
+            position: absolute;
+            width: 100%;
+            height: 120px;
+            background-color: #000;
+            z-index:999;
+            top: 0 ; left: 0 ;
+        }
+        header .center{
+            position: relative;
+            top: 50%;
+            left: 50%;
+            margin-top: -22px;
+            margin-left: -22px;
+            width: 45px;
+            height: 45px;
+        }
+        header .center img{
+            width: 45px;
+            height: 45px;
+        }
+        header  .center .username{
+            color: #fff;
+            font-size: 20px;
+        }
+
+        .menu_list{
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+        }
+        .menu_list div{
+            position: relative;
+            padding-left: 16px;
+            height: 61px;
+            line-height: 61px;
+            font-size: 15px;
+            color: #ffffff;
+
+        }
+        .menu_list .memo_all{
+            background-color: #fff;
+            color: black;
+        }
+        .menu_list div img{
+            position: relative;
+            top: 6px;
+            width: 24px;
+            height: 24px;
+        }
+        .menu_list div p{
+            display: inline-block;
+            margin-left: 16px;
+        }
+        .menu_list div .back{
+            position: absolute;
+            top: 27px;
+            right: 6px;
+            width: 10px;
+            height: 10px;
+        }
+        .set{
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 25px;
+            height: 25px;
+            background: url("./../image/set@3x.png") no-repeat center;
+            background-size: 25px 25px;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="menu">
+    <!--头部导航栏-->
+    <header id="header">
+        <div class="center"><img src="../image/profile-photo@3x.png" alt="cannot find">
+            <div class="username">Abby</div>
+        </div>
+    </header>
+    <!--头部结束-->
+
+    <!--内容开始-->
+    <div class="menu_list">
+        <div class="memo_all"><img src="./../image/memo-all-b@3x.png" alt=""><p>MEMO·ALL</p>
+            <img class="back" src="./../image/back-1@3x.png" alt="">
+        </div>
+        <div class="memo_alarm"><img src="./../image/momo-alarm-a@3x.png" alt=""><p>MEMO·ALARM</p></div>
+        <div class="memo_note"><img src="./../image/momo-note-a@3x.png" alt=""><p>MEMO·NOTE</p></div>
+        <div class="memo_trash"><img src="./../image/trash-a@3x.png" alt=""><p>TRASH</p></div>
+    </div>
+    <!--内容结束-->
+</div>
+
+<div class="set"></div>
+
+
+</body>
+</html>
