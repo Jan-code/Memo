@@ -1,0 +1,275 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width" />
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>Hello APP</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <style>
+        body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{
+            margin:0;padding:0
+        }
+        a{
+            text-decoration: none;
+            color: #ccc;
+        }
+        ul, ol{
+            list-style: none;
+        }
+        html,body{
+            font-size:14px;
+            font-family:"宋体";
+            color: #222;
+            background-color: #efefef;
+        }
+
+        .content .top{
+            /*position: absolute;*/
+            width: auto;
+            height: 142px;
+            background-color: #fff;
+        }
+        .content .top .straightLine{
+            display: inline-block;
+            margin-top: 15px;
+            width: 7px;
+            height: 108px;
+            background-color: #000;
+        }
+        .content .top .text{
+            display: inline-block;
+            width: 57%;
+            margin-left: 5%;
+        }
+        .content .top .set_date{
+            display: inline-block;
+            position: relative;
+            bottom: 30px;
+            background: url("./../image/set-time@3x.png") no-repeat center;
+        }
+        .content .top .set_list{
+            display: inline-block;
+            position: relative;
+            bottom: 40px;
+            left: 10px;
+            border-radius: 50%;
+            background-color: #f1f1f1;
+        }
+        .content .top .set_list img{
+            position: relative;
+            top: 10px;
+            left: 8px;
+        }
+        @media (max-width: 3000px) {
+            .content .top .text .date{
+                font-size: 43px;
+            }
+            .content .top .weekday{
+                margin-top: 15px;
+                font-size: 26px;
+            }
+            .content .top .set_date{
+                 width: 30px;
+                 height: 30px;
+                 background-size: 30px 30px;
+             }
+            .content .top .set_list{
+                width: 50px;
+                height: 50px;
+            }
+            .content .top .set_list img{
+                width: 30px;
+                height: 30px;
+            }
+        }
+        @media (max-width: 350px) {
+            .content .top .text .date{
+                font-size: 36px;
+            }
+            .content .top .weekday{
+                margin-top: 15px;
+                font-size: 24px;
+            }
+            .content .top .set_date{
+                width: 25px;
+                height: 25px;
+                background-size: 25px 25px;
+            }
+            .content .top .set_list{
+                width: 45px;
+                height: 45px;
+            }
+            .content .top .set_list img{
+                width: 25px;
+                height: 25px;
+            }
+        }
+        @media (max-width: 300px) {
+            .content .top .text .date{
+                font-size: 30px;
+            }
+            .content .top .weekday{
+                margin-top: 15px;
+                font-size: 20px;
+            }
+            .content .top .set_date{
+                width: 20px;
+                height: 20px;
+                background-size: 20px 20px;
+            }
+            .content .top .set_list{
+                width: 40px;
+                height: 40px;
+            }
+            .content .top .set_list img{
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        .content .items{
+            position: relative;
+            margin-left: 20px;
+            margin-right: 20px;
+            width: auto;
+            height: 100%;
+
+        }
+        .content .items .item{
+            position: relative;
+            height: 80px;
+        }
+        .content .items .item .item_left{
+            display: inline-block;
+            width: 50%;
+            height: 80px;
+            border-right: #d9d9d9 solid 1px;
+        }
+
+        .item .item_left .alarm{
+            position: relative;
+            top: 20px;
+            left: 6%;
+            width: 30px;
+            height: 30px;
+            background: url("./../image/add-alarm@3x.png") no-repeat center;
+            background-size: 30px 30px;
+        }
+        .item .item_left .time{
+            position: relative;
+            width: 60px;
+            left: 40%;
+            bottom: 9px;
+            color: #222222;
+            font-size: 20px;
+        }
+        .item .item_left .time_am{
+            position:relative;
+            width: 60px;
+            left: 41%;
+            bottom: 9px;
+            color: #222222;
+            font-size: 14px;
+        }
+
+        .item .item_center{
+            position: absolute;
+            display: inline-block;
+            left: 50%;
+            top: 27px;
+            margin-left: -10px;
+            width: 20px;
+            height: 20px;
+            background: url("./../image/important_true@3x.png") no-repeat center;
+            background-size: 20px 20px;
+        }
+        .item .item_right{
+            display: inline-block;
+            position: relative;
+            bottom: 20px;
+            left: 5%;
+            width: 45%;
+            height: 60px;
+            background-color: #fff;
+            border: #efefef solid 0.5px;
+        }
+        .item .item_right p{
+            display: inline-block;
+            padding-left: 12px;
+            line-height: 60px;
+            font-size: 17px;
+        }
+    </style>
+</head>
+<body>
+
+<!--内容开始-->
+<div class="content">
+    <!--头部-->
+    <div class="top">
+        <div class="straightLine"></div>
+        <div class="text">
+            <div class="date">25th Dec.</div>
+            <div class="weekday">Friday</div>
+        </div>
+        <div class="set_date"></div>
+        <div class="set_list"><img src="./../image/list@3x.png" alt=""></div>
+    </div>
+    <!--主要内容-->
+    <section class="items">
+        <div class="item">
+            <div class="item_left">
+                <div class="alarm"></div>
+                <div class="time">9:00</div>
+                <div class="time_am">A.M</div>
+            </div>
+            <div class="item_center"></div>
+            <div class="item_right"><p>Pro.meeting</p></div>
+        </div>
+        <div class="item">
+        <div class="item_left">
+            <div class="alarm"></div>
+            <div class="time">9:00</div>
+            <div class="time_am">A.M</div>
+        </div>
+        <div class="item_center"></div>
+        <div class="item_right"><p>Pro.meeting</p></div>
+    </div>
+        <div class="item">
+            <div class="item_left">
+                <div class="alarm"></div>
+                <div class="time">9:00</div>
+                <div class="time_am">A.M</div>
+            </div>
+            <div class="item_center"></div>
+            <div class="item_right"><p>Pro.meeting</p></div>
+        </div>
+        <div class="item">
+            <div class="item_left">
+                <div class="alarm"></div>
+                <div class="time">9:00</div>
+                <div class="time_am">A.M</div>
+            </div>
+            <div class="item_center"></div>
+            <div class="item_right"><p>Pro.meeting</p></div>
+        </div>
+        <div class="item">
+            <div class="item_left">
+                <div class="alarm"></div>
+                <div class="time">9:00</div>
+                <div class="time_am">A.M</div>
+            </div>
+            <div class="item_center"></div>
+            <div class="item_right"><p>Pro.meeting</p></div>
+        </div>
+    </section>
+    <!--主要内容结束-->
+</div>
+<!--内容结束-->
+
+
+
+</body>
+</html>
