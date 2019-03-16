@@ -123,9 +123,26 @@
     </ul>
 </div>
 <div class="bottom"></div>
-
-<footer>
+<footer tapmode onclick="finishChoose();">
     <p>开始阅读</p>
 </footer>
 </body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+  apiready = function(){
+
+  };
+  function finishChoose () {
+    var choosed = true;
+    if (choosed) {
+      api.openWin({
+        name: 'private_list',
+        url: './private_list.html',
+        pageParam: {
+          name: 'test'
+        }
+      });
+    }
+  }
+</script>
 </html>

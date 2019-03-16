@@ -134,7 +134,7 @@
     </div>
 </div>
 <!--登陆按钮-->
-<div class="login_logo">
+<div class="login_logo" tapmode onclick="logInto();">
     <p>LOGIN</p>
 </div>
 <!--注册按钮-->
@@ -147,4 +147,22 @@
     <div class="wechat"></div>
 </div>
 </body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+  apiready = function(){
+
+  };
+  function logInto () {
+    var isLogin = true;
+    if (isLogin) {
+      api.openWin({
+        name: 'label',
+        url: './label.html',
+        pageParam: {
+          name: 'test'
+        }
+      });
+    }
+  }
+</script>
 </html>

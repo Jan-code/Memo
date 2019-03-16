@@ -1,167 +1,22 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
     <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
-    <title>底部导航</title>
-    <link rel="stylesheet" type="text/css" href="./css/api.css"/>
-    <link rel="stylesheet" type="text/css" href="./css/style.css"/>
-    <style>
-        /*header{ background-color: #f2f2f2; }
-        header ul li { height: 50px; line-height: 50px; text-align: center; display: none; color: #323237; position: relative;font-size: 18px;  }
-        header ul li.active{ display: block; }*/
-        /*#footer{  background-color: #f2f2f2; }
-        #footer ul li{  padding-top: 36px; padding-bottom: 4px; background: url() no-repeat center 2px; background-size: auto 30px; text-align: center; }
-        #footer ul li.active{ color: #6ab494; }
-        #footer ul li:nth-child(1){ background-image: url(./image/bottombtn0101.png); }
-        #footer ul li:nth-child(2){ background-image: url(./image/bottombtn0201.png); }
-        #footer ul li:nth-child(3){ background-image: url(./image/bottombtn0301.png); }
-        #footer ul li:nth-child(4){ background-image: url(./image/bottombtn0401.png); }
-        #footer ul li:nth-child(1).active{ background-image: url(./image/bottombtn0102.png); }
-        #footer ul li:nth-child(2).active{ background-image: url(./image/bottombtn0202.png); }
-        #footer ul li:nth-child(3).active{ background-image: url(./image/bottombtn0302.png); }
-        #footer ul li:nth-child(4).active{ background-image: url(./image/bottombtn0402.png); }*/
-        .flex-con{
-          overflow: auto
-        }
-        #footer{
-            width: 100%;
-            height: 40px;
-            background-color: #222;
-        }
-        #footer .add{
-          position: relative;
-          bottom: 26px;
-          left: 50%;
-          margin-left: -26px;
-          width: 52px;
-          height: 52px;
-          background-color: #fff;
-          border-radius: 50%;
-        }
-
-        #footer .square img{
-            position: absolute;
-            top: 7px;
-            left: 95px;
-            width: 30px;
-            height: 30px;
-        }
-        #footer .add img{
-          position: relative;
-          top: 2px;
-          left: 2px;
-            width: 48px;
-            height: 48px;
-        }
-        #footer .message img{
-            position: absolute;
-            top: 7px;
-            right: 95px;
-            width: 30px;
-            height: 30px;
-        }
-    </style>
+    <title>Hello APP</title>
+    <link rel="stylesheet" type="text/css" href="./css/api.css" />
 </head>
-<body>
-<div id="wrap" class="flex-wrap flex-vertical">
-    <header>
-        <ul>
-            <li class="border-b active" ></li>
-            <li class="border-b" ></li>
-            <li class="border-b" ></li>
-            <li class="border-b" ></li>
-        </ul>
-    </header>
-    <div id="main" class="flex-con">
-
-    </div>
-    <div id="footer" class="border-t">
-        <ul class="flex-wrap" >
-            <li class="square" tapmode="hover" onclick="randomSwitchBtn( this );" class="flex-con active" ><img src="../image/square.png" alt="cannot find"></li>
-            <li class="add" tapmode="hover" onclick="randomSwitchBtn( this );" class="flex-con" ><img src="../image/add.png" alt="cannot find"></li>
-            <li class="message" tapmode="hover" onclick="randomSwitchBtn( this );" class="flex-con" ><img src="../image/message.png" alt="cannot find"></li>
-        </ul>
-    </div>
-</div>
-</body>
-</html>
-<script type="text/javascript" src="script/api.js"></script>
+<script type="text/javascript" src="./script/api.js"></script>
 <script type="text/javascript">
-    apiready = function () {
-        $api.fixStatusBar( $api.dom('header') );
-        api.setStatusBarStyle({
-            style: 'dark',
-            color: '#6ab494'
-        });
-        funIniGroup();
-    }
-
-    function funIniGroup(){
-        var eHeaderLis = $api.domAll('header li'),
-            frames = [];
-        for (var i = 0,len = eHeaderLis.length; i < len; i++) {
-          if(i==1){
-            frames.push( {
-                name: 'login',
-                url: './html/login.html',
-                bgColor : 'rgba(0,0,0,.2)',
-                bounces:true
-            } )
-          }
-          if(i==2){
-            frames.push( {
-                name: 'home',
-                url: './html/home.html',
-                bgColor : 'rgba(0,0,0,.2)',
-                bounces:true
-            } )
-          }
-          if(i==3){
-            frames.push( {
-                name: 'label',
-                url: './html/label.html',
-                bgColor : 'rgba(0,0,0,.2)',
-                bounces:true
-            } )
-          }
-        }
-        api.openFrameGroup({
-            name: 'group',
-            scrollEnabled: false,
-            rect: {
-                x: 0,
-                y: $api.dom('header').offsetHeight,
-                w: api.winWidth,
-                h: $api.dom('#main').offsetHeight
-            },
-            index: 0,
-            frames: frames
-        }, function (ret, err) {
-
-        });
-    }
-
-    // 随意切换按钮
-    function randomSwitchBtn( tag ) {
-        if( tag == $api.dom('#footer li.active') )return;
-        var eFootLis = $api.domAll('#footer li'),
-            eHeaderLis = $api.domAll('header li'),
-            index = 0;
-        for (var i = 0,len = eFootLis.length; i < len; i++) {
-            if( tag == eFootLis[i] ){
-                index = i;
-            }else{
-                $api.removeCls(eFootLis[i], 'active');
-                $api.removeCls(eHeaderLis[i], 'active');
+    apiready = function(){
+        api.openWin({
+            name: 'login',
+            url: './html/login.html',
+            pageParam: {
+                name: 'test'
             }
-        }
-        $api.addCls( eFootLis[index], 'active');
-        $api.addCls( eHeaderLis[index], 'active');
-        api.setFrameGroupIndex({
-            name: 'group',
-            index: index
         });
-    }
+    };
 </script>
+</html>
