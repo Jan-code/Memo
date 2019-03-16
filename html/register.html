@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width" />
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>登陆</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <style>
+        html,body{
+            width: 100%;
+        }
+        .login{
+            position: relative;
+            margin-top: 45%;
+            width: 100%;
+            height: 110px;
+        }
+
+        .username,.password{
+            position: absolute;
+            left: 12.5%;
+            width: 62.5%;
+            height: 54px;
+            border: 2px solid black;
+        }
+        .username{
+            border-right-style: none;
+            border-radius: 27px 0px 0px 27px;
+        }
+        .password{
+            left: 25%;
+            top: 56px;
+            border-left-style: none;
+            border-radius: 0px 27px 27px 0px;
+        }
+        .username .phone_img{
+            position: absolute;
+            left: 6.75%;
+            top: 50%;
+            margin-top: -15px;
+            width: 30px;
+            height: 30px;
+            background: url("./../image/phone.png");
+        }
+        .password .password_img{
+            position: absolute;
+            right: 6.75%;
+            top: 50%;
+            margin-top: -15px;
+            width: 30px;
+            height: 30px;
+            background: url("./../image/verification.png");
+        }
+
+        .login input{
+            position: absolute;
+            width: 48%;
+            height: 52px;
+            border: none;
+            font-size: 24px;
+            color: #222222;
+            outline: none;
+        }
+        .username input{
+            left: 30%;
+        }
+        .password input{
+            right: 40%;
+        }
+        .login_logo{
+            position: relative;
+            left: 12.5%;
+            margin-top: 24%;
+            background-color: #222;
+            width: 75%;
+            height: 43px;
+            border-radius: 21px;
+        }
+        .login_logo p{
+            text-align: center;
+            line-height: 43px;
+            font-size: 24px;
+            color: white;
+        }
+
+        .login_others{
+            position: fixed;
+            left: 50%;
+            bottom: 14px;
+            margin-left: -60px;
+        }
+        .login_others div{
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+        }
+        .login_others .qq{
+            margin-right: 60px;
+            background: url("./../image/QQ.png") no-repeat center;
+
+        }
+        .login_others .wechat{
+            background: url("./../image/wechat.png") no-repeat center;
+        }
+    </style>
+</head>
+<body>
+<!--用户名及验证码输入部分-->
+<div class="login">
+    <div class="username">
+        <div class="phone_img"></div>
+        <!--设置为只能输入数字-->
+        <input type="text" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+    </div>
+    <div class="password">
+        <div class="password_img"></div>
+        <!--验证码只能输入数字-->
+        <input type="text" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+    </div>
+</div>
+<!--登陆按钮-->
+<div class="login_logo" tapmode onclick="logInto();">
+    <p>REGISTER</p>
+</div>
+<!--其他登陆方式-->
+<div class="login_others">
+    <div class="qq"></div>
+    <div class="wechat"></div>
+</div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+    apiready = function(){
+
+    };
+</script>
+</html>

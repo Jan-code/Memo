@@ -1,0 +1,265 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width" />
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>Hello APP</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <style>
+        body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{
+            margin:0;padding:0
+        }
+        a{
+            text-decoration: none;
+            color: #ccc;
+        }
+        ul, ol{
+            list-style: none;
+        }
+        body{
+            font-size:14px;
+            font-family:"宋体";
+            color: #222;
+        }
+
+
+        .content {
+            position: relative;
+            margin-left: 30px;
+            margin-right: 30px;
+            width: auto;
+        }
+        .content .title{
+            /*position: absolute;*/
+            position: relative;
+            margin-top: 15px;
+            width: 100%;
+            height: 50px;
+        }
+        .content .title input{
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            font-size: 23px;
+            border: none;
+            outline: none;
+            border-bottom: #efefef solid 1px;
+            opacity: 60%;
+            color: #050505;
+        }
+        .content .content_detail{
+            position: relative;
+            width: 100%;
+        }
+        .content .content_detail input{
+            width: 100%;
+            line-height: 20px;
+            font-size: 17px;
+            border: none;
+            outline: none;
+            opacity: 60%;
+            color: #050505;
+        }
+
+        .label{
+            position: fixed;
+            bottom: 150px;
+            left: 0;
+            right: 0;
+            margin-left: 30px;
+            margin-right: 30px;
+            width: auto;
+            height: 40px;
+            border-top: #efefef solid 1px;
+        }
+        .label .label_img{
+            position: absolute;
+            display: inline-block;
+            bottom: 7px;
+            width: 34px;
+            height: 20px;
+        }
+
+        .label .label_img img{
+            transform: rotate(180deg);
+            -webkit-transform: rotate(180deg);
+            width: 20px;
+            height: 20px;
+        }
+        .label .label_img .label_img_2{
+            position: absolute;
+            left: 9px;
+
+        }
+        .label .label_list{
+            margin-left: 40px;
+        }
+        .label .item{
+            display: inline-block;
+            margin-top: 13px;
+            margin-right: 6px;
+        }
+        .label .item input[type="checkbox"]{
+            width: 0px;
+            visibility: hidden;}
+        .label .item input[type="checkbox"]+p{
+            display:inline-block;
+            height: 20px;
+            padding-left: 13px;
+            padding-right: 13px;
+            border: 1px solid #707070;
+            border-radius: 8px;
+            background-color: white;
+            color: #222222;
+            font-size: 11px;
+            line-height: 20px;
+        }
+        .label .item input[type="checkbox"]:checked+p{
+            background-color: #707070;
+            color: #ededed;
+        }
+        .label .add_class{
+            position: relative;
+            display:inline-block;
+            border: 1px solid #707070;
+            border-radius: 8px;
+            background-color: white;
+            width: 40px;
+            height: 20px;
+        }
+
+        .label .add_class img{
+            position: relative;
+            left: 50%;
+            top: 19%;
+            margin-left: -6px;
+            width: 12px;
+            height: 12px;
+        }
+        .time_address{
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 40px;
+            margin-left: 30px;
+            margin-right: 30px;
+            width: auto;
+            height: 50px;
+            padding: 11px 0 11px;
+            border-top: #efefef solid 1px;
+        }
+
+        .time_address .event_Time{
+            display: inline-block;
+            margin-top: 10px;
+            padding-left: 6px;
+            padding-right: 6px;
+            width: auto;
+            height: 22px;
+            font-size: 14px;
+            line-height: 22px;
+            color: #707070;
+            background-color: #ececec;
+            border-radius: 4px;
+        }
+        .time_address .event_Time img{
+            position: relative;
+            top: 3px;
+            margin-right: 7px;
+            width: 16px;
+            height: 16px;
+        }
+        .time_address .event_Address{
+            display: inline-block;
+            margin-top: 13px;
+            padding-left: 6px;
+            padding-right: 6px;
+            width: auto;
+            height: 22px;
+            font-size: 14px;
+            line-height: 22px;
+            color: #707070;
+            background-color: #ececec;
+            border-radius: 4px;
+        }
+        .time_address .event_Address img{
+            position: relative;
+            top: 3px;
+            margin-right: 7px;
+            width: 16px;
+            height: 16px;
+        }
+
+        footer{
+            position: fixed;
+            bottom: 0px;
+            width: 100%;
+            height: 40px;
+            background-color: #ededed;
+        }
+        footer div{
+            display: inline-block;
+            position: relative;
+            top: 50%;
+            margin-top: -12px;
+            width: 16.6%;
+            height: 24px;
+        }
+        footer img {
+            position: relative;
+            left: 50%;
+            margin-left: -12px;
+            height: 24px;
+            width: 24px;
+        }
+    </style>
+</head>
+<body>
+
+
+<!--内容开始-->
+<div class="content">
+    <!--内容顶部-->
+    <div class="title">
+        <input type="text" placeholder="Write title here">
+    </div>
+    <!--内容顶部结束-->
+    <!--具体内容-->
+    <div class="content_detail">
+        <input type="text" placeholder="What's your mind?">
+    </div>
+    <!--具体内容结束-->
+
+
+</div>
+<!--内容结束-->
+
+
+<!--添加标签-->
+<div class="label">
+    <div class="label_img">
+        <img src="../image/back.png" alt="">
+        <img src="../image/back.png" alt="" class="label_img_2">
+    </div>
+    <ul class="checklist label_list">
+        <li class="item"><label><input type="checkbox" name="nightRunning" /><p>夜跑</p></label></li><li class="item"><label><input type="checkbox" name="fitness" /><p>健身</p></label></li><li class="item"><label><input type="checkbox" name="aerobics" /><p>有氧运动</p></label></li><li class="item"><label><input type="checkbox" name="swim" /><p>游泳</p></label></li><li class="item"><div class="add_class"><img  src="../image/plus.png" alt=""></div></li>
+    </ul>
+</div>
+<!--添加标签结束-->
+
+<!--添加时间及地点-->
+<div class="time_address">
+    <div class="event_Time"><img src="../image/time.png" alt="cannot find">15 Nov</div>
+    <div class="event_Address"><img src="../image/address.png" alt="cannot find">shanghai,China</div>
+</div>
+
+
+<!--底部开始-->
+<footer id="footer">
+    <div class="picture"><img src="../image/picture.png" alt=""></div><div class="video"><img src="../image/video2.png" alt=""></div><div class="voice"><img src="../image/voice1.png" alt=""></div><div class="typeFace"><img src="../image/typeFace.png" alt=""></div><div class="unlock"><img src="../image/public.png" alt=""></div><div class="backout"><img src="../image/backout.png" alt=""></div>
+</footer>
+<!--底部结束-->
+</body>
+</html>
