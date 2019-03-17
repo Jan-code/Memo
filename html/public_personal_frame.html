@@ -1,0 +1,487 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width" />
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>Hello APP</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <style>
+        body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{
+            margin:0;padding:0
+        }
+        a{
+            text-decoration: none;
+            color: #ccc;
+        }
+        ul, ol{
+            list-style: none;
+        }
+        html,body{
+            width: 100%;
+            font-size:14px;
+            font-family:"宋体";
+            color: #222;
+        }
+
+        .content{
+            background-color: #e4e4e4;
+        }
+
+        .content .top{
+            /*position: absolute;*/
+            width: auto;
+            height: 242px;
+            background-color: #fff;
+            border-bottom: #f1f1f1 solid 1px;
+        }
+        .content .top .background_img{
+            width: 100%;
+            height: 122px;
+            background: url("./../image/chatHead5.png") no-repeat center;
+            background-size: 100% 122px;
+        }
+
+        .content .top .chatHead{
+            position: relative;
+            display: inline-block;
+            bottom: 16px;
+            left: 10px;
+            width: 60px;
+            height: 60px;
+            border: white solid 5px;
+            border-radius: 50%;
+
+        }
+        .content .top .chatHead img{
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
+
+        .content .top .username{
+            position: relative;
+            display: inline-block;
+            bottom: 36px;
+            left: 16px;
+            width: 100px;
+            height: 23px;
+            font-size: 23px;
+            color: #222222;
+        }
+        .content .top .personal_sign{
+            position: relative;
+            bottom: 30px;
+            left: 92px;
+            width: 200px;
+            height: 15px;
+            font-size: 15px;
+            color: #6e6e6e;
+        }
+
+        .content .top .attention{
+            position: absolute;
+            display: inline-block;
+            right: 21%;
+            top: 132px;
+            width: 58px;
+            height: 25px;
+            border-radius: 15px;
+            background-color: #000;
+            color: white;
+            line-height: 25px;
+            text-align: center;
+        }
+        .content .top .private_letter{
+            position: absolute;
+            display: inline-block;
+            right: 8%;
+            top: 134px;
+            width: 25px;
+            height: 20px;
+            background: url("./../image/message@3x.png") no-repeat center;
+            background-size: 25px 20px;
+        }
+
+        .content .top  .attention_num{
+            position: relative;
+            display: inline-block;
+            bottom: 8px;
+            left: 97px;
+            width: 80px;
+            height: 17px;
+            font-size: 14px;
+            color: #6e6e6e;
+            border-right: #6e6e6e solid 1px;
+            line-height: 17px;
+        }
+        .content .top  .attention_num p{
+            display: inline-block;
+            margin-left: 12px;
+            font-size: 17px;
+            color: #222222;
+        }
+
+        .content .top  .fans{
+            position: relative;
+            display: inline-block;
+            bottom: 8px;
+            left: 112px;
+            width: 80px;
+            height: 17px;
+            font-size: 14px;
+            color: #6e6e6e;
+            line-height: 17px;
+        }
+        .content .top  .fans p{
+            display: inline-block;
+            margin-left: 12px;
+            font-size: 17px;
+            color: #222222;
+        }
+
+        .content .tags{
+            position: relative;
+            width: 100%;
+            height: 50px;
+            padding-left: 20px;
+            padding-right: 40px;
+            background-color: #fff;
+        }
+        .content .tags p{
+            position: relative;
+            display: inline-block;
+            height: 21px;
+            width: auto;
+            top: 15px;
+            margin-left: 23px;
+            padding-left: 11px;
+            padding-right: 11px;
+            background-color: #eee;
+            border-radius: 10px;
+            font-size: 13px;
+            line-height: 21px;
+            color: #a4a4a4;
+        }
+        .content  .back{
+            position: absolute;
+            display: inline-block;
+            right: 18px;
+            top: 257px;
+            width: 22px;
+            height: 22px;
+            background: url("./../image/back-1@3x.png") no-repeat center;
+            background-size: 22px 22px;
+        }
+
+        .content .nav{
+            height: 58px;
+            width: auto;
+            margin-left: 25px;
+            margin-right: 25px;
+            border-bottom: #dfdfdf solid 1px;
+        }
+
+        .content .nav .public{
+            position: relative;
+            display: inline-block;
+            left: 20%;
+            top: 23px;
+            height: 32px;
+            width: 42px;
+            border-bottom: #000 solid 3px;
+            text-align: center;
+            line-height: 32px;
+            font-size: 17px;
+            color: #222222;
+        }
+        .content .nav .collect{
+            position: relative;
+            display: inline-block;
+            left: 55%;
+            top: 23px;
+            height: 32px;
+            width: 42px;
+            text-align: center;
+            line-height: 32px;
+            font-size: 17px;
+            color: #a4a4a4;
+        }
+
+        .content .items{
+            position: relative;
+            padding-top: 18px;
+            margin-left: 15px;
+            margin-right: 15px;
+            width: auto;
+            height: auto;
+        }
+        .content .items .item{
+            position: relative;
+            margin-bottom: 13px;
+            padding-top: 10px;
+            padding-left: 13px;
+            padding-right: 13px;
+            width: auto;
+            height: auto;
+            background-color: #fff;
+        }
+        .item .item_head{
+            position: relative;
+            width: auto;
+            height: 30px;
+        }
+        .item .item_head .chatHead{
+            position: absolute;
+            left: 0;
+            width: 30px;
+            height: 30px;
+        }
+        .item .item_head .chatHead img{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+        .item .item_head .username{
+            position: absolute;
+            left: 32px;
+            width: auto;
+            height: 30px;
+            font-size: 14px;
+            line-height: 30px;
+            color: #b1b1b1;
+        }
+        .item .item_head .postedDate{
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: auto;
+            height: 30px;
+            font-size: 14px;
+            line-height: 30px;
+            color: #b1b1b1;
+        }
+
+        .item .item_Content .event_Title{
+            margin-top: 3px;
+            width: auto;
+            height: auto;
+            font-size: 20px;
+            line-height: 24px;
+        }
+        .item .item_Content .event_Tag{
+            width: auto;
+            height: 22px;
+            font-size: 14px;
+            line-height: 22px;
+            color: #515151;
+        }
+        .event_Tag img{
+            position: relative;
+            top: 5px;
+            margin-right: 6px;
+            width: 22px;
+            height: 22px;
+        }
+        .item .item_Content .event_Time{
+            display: inline-block;
+            margin-top: 10px;
+            padding-left: 6px;
+            padding-right: 6px;
+            width: auto;
+            height: 22px;
+            font-size: 14px;
+            line-height: 22px;
+            color: #707070;
+            background-color: #ececec;
+            border-radius: 4px;
+        }
+        .event_Time img{
+            position: relative;
+            top: 3px;
+            margin-right: 7px;
+            width: 16px;
+            height: 16px;
+        }
+        .item .item_Content .event_Address{
+            display: inline-block;
+            margin-top: 13px;
+            padding-left: 6px;
+            padding-right: 6px;
+            width: auto;
+            height: 22px;
+            font-size: 14px;
+            line-height: 22px;
+            color: #707070;
+            background-color: #ececec;
+            border-radius: 4px;
+        }
+        .event_Address img{
+            position: relative;
+            top: 3px;
+            margin-right: 7px;
+            width: 16px;
+            height: 16px;
+        }
+
+        .item .item_Bottom{
+            position: relative;
+            margin-top: 8px;
+            height: 30px;
+        }
+        .item .item_Bottom .addFriend img{
+            margin-right: 5px;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+        }
+        .item .item_Bottom .addFriend{
+            display: inline-block;
+            color: #b1b1b1;
+            font-size: 9px;
+            line-height: 22px;
+        }
+        .item .item_Bottom .comment{
+            position: absolute;
+            right: 40px;
+            bottom: 0;
+        }
+        .item .item_Bottom .collect{
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+        .item .item_Bottom .comment img{
+            width: 22px;
+            height: 22px;
+        }
+        .item .item_Bottom .collect img{
+            width: 22px;
+            height: 22px;
+        }
+
+        .push-status {
+            width: 100%;
+            height: 40px;
+            font-size: 16px;
+            color: #888;
+            line-height: 40px;
+            text-align: center;
+            background-color: #e4e4e4;
+        }
+    </style>
+</head>
+<body>
+
+
+<!--内容开始-->
+<div class="content">
+    <!--内容顶部-->
+    <div class="top">
+        <div class="background_img"></div>
+        <div class="chatHead"><img src="../image/chatHead1.png" alt="cannot find"></div>
+        <div class="username">Abby</div>
+        <div class="personal_sign">Never too old to learn</div>
+        <div class="attention">关注</div>
+        <div class="private_letter"></div>
+        <div class="attention_num">关注<p>12</p></div>
+        <div class="fans">粉丝<p>125</p></div>
+    </div>
+    <div class="tags">
+        <p>读书</p>
+        <p>美食</p>
+        <p>健身</p>
+    </div>
+    <div class="back"></div>
+
+    <div class="nav">
+        <div class="public">发布</div>
+        <div class="collect">收藏</div>
+    </div>
+
+
+
+    <!--内容顶部结束-->
+    <!--主要内容-->
+    <section class="items">
+        <div class="item">
+            <div class="item_head">
+                <div class="chatHead"><img src="../image/chatHead1.png" alt="cannot find"></div>
+                <div class="username">Abby</div>
+                <div class="postedDate">11/09</div>
+            </div>
+            <div class="item_Content">
+                <div class="event_Title">Skills: How to make background darker in daylight?</div>
+                <div class="event_Tag"><img src="../image/tag.png" alt="cannot find">skills,photographic</div>
+                <div class="event_Time"><img src="../image/time.png" alt="cannot find">15 Nov</div>
+                <div class="event_Address"><img src="../image/address.png" alt="cannot find">shanghai,China</div>
+            </div>
+            <div class="item_Bottom">
+                <div class="addFriend">
+                    <img src="../image/chatHead2.png" alt="cannot find">
+                    <img src="../image/chatHead3.png" alt="cannot find">
+                    <img src="../image/chatHead4.png" alt="cannot find">
+                    <img src="../image/chatHead5.png" alt="cannot find">
+                    has joined
+                </div>
+                <div class="comment"><img src="../image/comment.png" alt="cannot find"></div>
+                <div class="collect"><img src="../image/collect.png" alt="cannot find"></div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item_head">
+                <div class="chatHead"><img src="../image/chatHead1.png" alt="cannot find"></div>
+                <div class="username">Abby</div>
+                <div class="postedDate">11/09</div>
+            </div>
+            <div class="item_Content">
+                <div class="event_Title">Skills: How to make background darker in daylight?</div>
+                <div class="event_Tag"><img src="../image/tag.png" alt="cannot find">skills,photographic</div>
+                <div class="event_Time"><img src="../image/time.png" alt="cannot find">15 Nov</div>
+                <div class="event_Address"><img src="../image/address.png" alt="cannot find">shanghai,China</div>
+            </div>
+            <div class="item_Bottom">
+                <div class="addFriend">
+                    <img src="../image/chatHead2.png" alt="cannot find">
+                    <img src="../image/chatHead3.png" alt="cannot find">
+                    <img src="../image/chatHead4.png" alt="cannot find">
+                    <img src="../image/chatHead5.png" alt="cannot find">
+                    has joined
+                </div>
+                <div class="comment"><img src="../image/comment.png" alt="cannot find"></div>
+                <div class="collect"><img src="../image/collect.png" alt="cannot find"></div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item_head">
+                <div class="chatHead"><img src="../image/chatHead1.png" alt="cannot find"></div>
+                <div class="username">Abby</div>
+                <div class="postedDate">11/09</div>
+            </div>
+            <div class="item_Content">
+                <div class="event_Title">Skills: How to make background darker in daylight?</div>
+                <div class="event_Tag"><img src="../image/tag.png" alt="cannot find">skills,photographic</div>
+                <div class="event_Time"><img src="../image/time.png" alt="cannot find">15 Nov</div>
+                <div class="event_Address"><img src="../image/address.png" alt="cannot find">shanghai,China</div>
+            </div>
+            <div class="item_Bottom">
+                <div class="addFriend">
+                    <img src="../image/chatHead2.png" alt="cannot find">
+                    <img src="../image/chatHead3.png" alt="cannot find">
+                    <img src="../image/chatHead4.png" alt="cannot find">
+                    <img src="../image/chatHead5.png" alt="cannot find">
+                    has joined
+                </div>
+                <div class="comment"><img src="../image/comment.png" alt="cannot find"></div>
+                <div class="collect"><img src="../image/collect.png" alt="cannot find"></div>
+            </div>
+        </div>
+    </section>
+    <!--主要内容结束-->
+    <div class="push-status" >上拉显示更多</div>
+</div>
+<!--内容结束-->
+
+</body>
+</html>
