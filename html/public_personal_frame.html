@@ -26,7 +26,7 @@
         }
 
         .content{
-            background-color: #e4e4e4;
+            background-color: #efefef;
         }
 
         .content .top{
@@ -71,13 +71,18 @@
             color: #222222;
         }
         .content .top .personal_sign{
-            position: relative;
-            bottom: 30px;
+            position: absolute;
+            bottom: 64px;
             left: 92px;
             width: 200px;
             height: 15px;
             font-size: 15px;
             color: #6e6e6e;
+        }
+        @media (max-width: 300px) {
+            .content .top .personal_sign{
+                width: 65%;
+            }
         }
 
         .content .top .attention{
@@ -105,10 +110,10 @@
         }
 
         .content .top  .attention_num{
-            position: relative;
+            position: absolute;
             display: inline-block;
-            bottom: 8px;
-            left: 97px;
+            top: 205px;
+            left: 92px;
             width: 80px;
             height: 17px;
             font-size: 14px;
@@ -124,11 +129,11 @@
         }
 
         .content .top  .fans{
-            position: relative;
+            position: absolute;
             display: inline-block;
-            bottom: 8px;
-            left: 112px;
-            width: 80px;
+            top: 205px;
+            left: 188px;
+            width: 72px;
             height: 17px;
             font-size: 14px;
             color: #6e6e6e;
@@ -143,7 +148,6 @@
 
         .content .tags{
             position: relative;
-            width: 100%;
             height: 50px;
             padding-left: 20px;
             padding-right: 40px;
@@ -212,68 +216,36 @@
         .content .items{
             position: relative;
             padding-top: 18px;
-            margin-left: 15px;
-            margin-right: 15px;
-            width: auto;
+            margin-left: 26px;
+            margin-right: 26px;
             height: auto;
         }
         .content .items .item{
             position: relative;
+            display: inline-block;
+            box-sizing: border-box;
             margin-bottom: 13px;
-            padding-top: 10px;
-            padding-left: 13px;
-            padding-right: 13px;
-            width: auto;
+            padding: 10px 13px;
+            width: 44%;
             height: auto;
             background-color: #fff;
         }
-        .item .item_head{
-            position: relative;
-            width: auto;
-            height: 30px;
+        .content .items .item:nth-child(even){
+            margin-left: 6%;
         }
-        .item .item_head .chatHead{
-            position: absolute;
-            left: 0;
-            width: 30px;
-            height: 30px;
-        }
-        .item .item_head .chatHead img{
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-        }
-        .item .item_head .username{
-            position: absolute;
-            left: 32px;
-            width: auto;
-            height: 30px;
-            font-size: 14px;
-            line-height: 30px;
-            color: #b1b1b1;
-        }
-        .item .item_head .postedDate{
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: auto;
-            height: 30px;
-            font-size: 14px;
-            line-height: 30px;
-            color: #b1b1b1;
-        }
+
 
         .item .item_Content .event_Title{
             margin-top: 3px;
             width: auto;
             height: auto;
-            font-size: 20px;
+            font-size: 15px;
             line-height: 24px;
         }
         .item .item_Content .event_Tag{
             width: auto;
             height: 22px;
-            font-size: 14px;
+            font-size: 10px;
             line-height: 22px;
             color: #515151;
         }
@@ -281,8 +253,8 @@
             position: relative;
             top: 5px;
             margin-right: 6px;
-            width: 22px;
-            height: 22px;
+            width: 16px;
+            height: 16px;
         }
         .item .item_Content .event_Time{
             display: inline-block;
@@ -290,9 +262,9 @@
             padding-left: 6px;
             padding-right: 6px;
             width: auto;
-            height: 22px;
-            font-size: 14px;
-            line-height: 22px;
+            height: 18px;
+            font-size: 10px;
+            line-height: 18px;
             color: #707070;
             background-color: #ececec;
             border-radius: 4px;
@@ -301,18 +273,18 @@
             position: relative;
             top: 3px;
             margin-right: 7px;
-            width: 16px;
-            height: 16px;
+            width: 12px;
+            height: 12px;
         }
         .item .item_Content .event_Address{
             display: inline-block;
-            margin-top: 13px;
+            margin-top: 9px;
             padding-left: 6px;
             padding-right: 6px;
             width: auto;
-            height: 22px;
-            font-size: 14px;
-            line-height: 22px;
+            height: 18px;
+            font-size: 10px;
+            line-height: 18px;
             color: #707070;
             background-color: #ececec;
             border-radius: 4px;
@@ -321,44 +293,8 @@
             position: relative;
             top: 3px;
             margin-right: 7px;
-            width: 16px;
-            height: 16px;
-        }
-
-        .item .item_Bottom{
-            position: relative;
-            margin-top: 8px;
-            height: 30px;
-        }
-        .item .item_Bottom .addFriend img{
-            margin-right: 5px;
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-        }
-        .item .item_Bottom .addFriend{
-            display: inline-block;
-            color: #b1b1b1;
-            font-size: 9px;
-            line-height: 22px;
-        }
-        .item .item_Bottom .comment{
-            position: absolute;
-            right: 40px;
-            bottom: 0;
-        }
-        .item .item_Bottom .collect{
-            position: absolute;
-            right: 0;
-            bottom: 0;
-        }
-        .item .item_Bottom .comment img{
-            width: 22px;
-            height: 22px;
-        }
-        .item .item_Bottom .collect img{
-            width: 22px;
-            height: 22px;
+            width: 12px;
+            height: 12px;
         }
 
         .push-status {
@@ -406,75 +342,35 @@
     <!--主要内容-->
     <section class="items">
         <div class="item">
-            <div class="item_head">
-                <div class="chatHead"><img src="../image/chatHead1.png" alt="cannot find"></div>
-                <div class="username">Abby</div>
-                <div class="postedDate">11/09</div>
-            </div>
             <div class="item_Content">
                 <div class="event_Title">Skills: How to make background darker in daylight?</div>
-                <div class="event_Tag"><img src="../image/tag.png" alt="cannot find">skills,photographic</div>
+                <div class="event_Tag"><img src="../image/tag.png" alt="cannot find">photic</div>
                 <div class="event_Time"><img src="../image/time.png" alt="cannot find">15 Nov</div>
-                <div class="event_Address"><img src="../image/address.png" alt="cannot find">shanghai,China</div>
-            </div>
-            <div class="item_Bottom">
-                <div class="addFriend">
-                    <img src="../image/chatHead2.png" alt="cannot find">
-                    <img src="../image/chatHead3.png" alt="cannot find">
-                    <img src="../image/chatHead4.png" alt="cannot find">
-                    <img src="../image/chatHead5.png" alt="cannot find">
-                    has joined
-                </div>
-                <div class="comment"><img src="../image/comment.png" alt="cannot find"></div>
-                <div class="collect"><img src="../image/collect.png" alt="cannot find"></div>
+                <div class="event_Address"><img src="../image/address.png" alt="cannot find">shanghai</div>
             </div>
         </div>
         <div class="item">
-            <div class="item_head">
-                <div class="chatHead"><img src="../image/chatHead1.png" alt="cannot find"></div>
-                <div class="username">Abby</div>
-                <div class="postedDate">11/09</div>
-            </div>
             <div class="item_Content">
                 <div class="event_Title">Skills: How to make background darker in daylight?</div>
-                <div class="event_Tag"><img src="../image/tag.png" alt="cannot find">skills,photographic</div>
+                <div class="event_Tag"><img src="../image/tag.png" alt="cannot find">phic</div>
                 <div class="event_Time"><img src="../image/time.png" alt="cannot find">15 Nov</div>
-                <div class="event_Address"><img src="../image/address.png" alt="cannot find">shanghai,China</div>
-            </div>
-            <div class="item_Bottom">
-                <div class="addFriend">
-                    <img src="../image/chatHead2.png" alt="cannot find">
-                    <img src="../image/chatHead3.png" alt="cannot find">
-                    <img src="../image/chatHead4.png" alt="cannot find">
-                    <img src="../image/chatHead5.png" alt="cannot find">
-                    has joined
-                </div>
-                <div class="comment"><img src="../image/comment.png" alt="cannot find"></div>
-                <div class="collect"><img src="../image/collect.png" alt="cannot find"></div>
+                <div class="event_Address"><img src="../image/address.png" alt="cannot find">shanghai</div>
             </div>
         </div>
         <div class="item">
-            <div class="item_head">
-                <div class="chatHead"><img src="../image/chatHead1.png" alt="cannot find"></div>
-                <div class="username">Abby</div>
-                <div class="postedDate">11/09</div>
-            </div>
             <div class="item_Content">
                 <div class="event_Title">Skills: How to make background darker in daylight?</div>
-                <div class="event_Tag"><img src="../image/tag.png" alt="cannot find">skills,photographic</div>
+                <div class="event_Tag"><img src="../image/tag.png" alt="cannot find">photographic</div>
                 <div class="event_Time"><img src="../image/time.png" alt="cannot find">15 Nov</div>
-                <div class="event_Address"><img src="../image/address.png" alt="cannot find">shanghai,China</div>
+                <div class="event_Address"><img src="../image/address.png" alt="cannot find">shanghai</div>
             </div>
-            <div class="item_Bottom">
-                <div class="addFriend">
-                    <img src="../image/chatHead2.png" alt="cannot find">
-                    <img src="../image/chatHead3.png" alt="cannot find">
-                    <img src="../image/chatHead4.png" alt="cannot find">
-                    <img src="../image/chatHead5.png" alt="cannot find">
-                    has joined
-                </div>
-                <div class="comment"><img src="../image/comment.png" alt="cannot find"></div>
-                <div class="collect"><img src="../image/collect.png" alt="cannot find"></div>
+        </div>
+        <div class="item">
+            <div class="item_Content">
+                <div class="event_Title">Skills: How to make background darker in daylight?</div>
+                <div class="event_Tag"><img src="../image/tag.png" alt="cannot find">photographic</div>
+                <div class="event_Time"><img src="../image/time.png" alt="cannot find">15 Nov</div>
+                <div class="event_Address"><img src="../image/address.png" alt="cannot find">shanghai</div>
             </div>
         </div>
     </section>
