@@ -263,7 +263,7 @@
                 <div class="postedDate">11/09</div>
             </div>
             <div class="item_Content">
-                <div class="event_Title">Skills: How to make background darker in daylight?</div>
+                <div class="event_Title" tapmode onclick="seeDetail();">Skills: How to make background darker in daylight?</div>
                 <div class="event_Tag"><img src="../image/tag.png" alt="cannot find">skills,photographic</div>
                 <div class="event_Time"><img src="../image/time.png" alt="cannot find">15 Nov</div>
                 <div class="event_Address"><img src="../image/address.png" alt="cannot find">shanghai,China</div>
@@ -340,5 +340,15 @@
     apiready = function() {
 
     };
+    function seeDetail () {
+      api.openWin({
+          name: 'public_detail',
+          url: './public_detail.html',
+          pageParam: {
+              name: 'test'
+          }
+      });
+
+    }
 
 </html>

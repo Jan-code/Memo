@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width" />
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>Hello APP</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <style>
+        body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{
+            margin:0;padding:0
+        }
+        html,body {
+          background-color: rgba(0, 0, 0, 0);
+        }
+        a{
+            text-decoration: none;
+            color: #ccc;
+        }
+        ul, ol{
+            list-style: none;
+        }
+        body{
+            font-size:14px;
+            font-family:"宋体";
+            color: #222;
+        }
+        header{
+            position: fixed;
+            width: 100%;
+            height: 35px;
+            background-color: #fff;
+            z-index:999;
+        }
+        header .left{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            margin-left: 27px;
+            width: 22px;
+            height: 22px;
+        }
+        header .right{
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            margin-right: 27px;
+            width: 22px;
+            height: 22px;
+        }
+        .left img{
+            width: 22px;
+            height: 22px;
+        }
+        .right img{
+            width: 22px;
+            height: 22px;
+        }
+
+        .content{
+            background-color: #e4e4e4;
+        }
+
+
+
+        footer{
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 40px;
+            background-color: #222;
+        }
+        footer .add{
+            position: relative;
+            bottom: 26px;
+            left: 50%;
+            margin-left: -26px;
+            width: 52px;
+            height: 52px;
+            background-color: #fff;
+            border-radius: 50%;
+        }
+
+        footer .square img{
+            position: absolute;
+            top: 7px;
+            left: 20%;
+            width: 30px;
+            height: 30px;
+        }
+        footer .add img{
+            position: relative;
+            top: 2px;
+            left: 2px;
+            width: 48px;
+            height: 48px;
+        }
+        footer .message img{
+            position: absolute;
+            top: 7px;
+            right: 20%;
+            width: 30px;
+            height: 30px;
+        }
+
+    </style>
+</head>
+<body>
+
+<footer id="footer">
+    <div class="square">
+        <img src="../image/square.png" alt="cannot find">
+    </div>
+    <div class="add">
+        <img src="../image/add.png" alt="cannot find" tapmode onclick="publicAdd()">
+    </div>
+    <div class="message">
+        <img src="../image/message.png" alt="cannot find">
+    </div>
+</footer>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+
+    };
+    function publicAdd () {
+      api.openWin({
+          name: 'public_add',
+          url: './public_add.html',
+          pageParam: {
+              name: 'test'
+          }
+      });
+    }
+</script>
+</html>

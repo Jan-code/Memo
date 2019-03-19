@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width" />
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>Hello APP</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <style>
+        body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{
+            margin:0;padding:0;
+        }
+        html,body{
+          background-color: rgba(0,0,0,0);
+        }
+
+        footer{
+            position: fixed;
+        }
+        footer .add{
+            position: relative;
+            width: 52px;
+            height: 52px;
+            background-color: white;
+            border-radius: 50%;
+        }
+        footer .add img{
+            position: relative;
+            top: 2px;
+            left: 2px;
+            width: 48px;
+            height: 48px;
+        }
+
+    </style>
+</head>
+<body>
+
+<footer id="footer">
+    <div class="add">
+        <img src="../image/add.png" alt="cannot find" tapmode onclick="addMome();">
+    </div>
+</footer>
+
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+  function addMome () {
+    var content = true;
+    if (content) {
+      api.openWin({
+        name: 'private_add',
+        url: './private_add.html',
+        pageParam: {
+          name: 'test'
+        }
+      });
+    }
+  };
+</script>
+</html>

@@ -107,17 +107,65 @@
 <!--头部导航栏-->
 <header id="header">
     <div class="left"><img src="../image/search.png" alt="cannot find"></div>
-    <div class="right"><img src="../image/user.png" alt="cannot find"></div>
+    <div class="right"><img src="../image/user.png" alt="cannot find" tapmode onclick="openUser();"></div>
 </header>
 <!--头部结束-->
 
+<footer id="footer">
 
+</footer>
 
 </body>
-<script type="text/javascript" src="./script/api.js"></script>
+<script type="text/javascript" src="../script/api.js"></script>
 <script type="text/javascript">
     apiready = function() {
-
+      var header = $api.byId('header');
+      var headerH = $api.fixStatusBar(header);
+      var frameH = api.winHeight - headerH - $api.offset($api.dom('footer')).h;
+      var footerH =  headerH + frameH;
+      api.openFrame({
+          name: 'public_list_frame',
+          url: './public_list_frame.html',
+          rect: {
+              x: 0,
+              y: headerH,
+              w: 'auto',
+              h: frameH
+          },
+          pageParam: {
+              name: 'test'
+          },
+          bounces: true,
+          bgColor: 'rgba(0,0,0,0)',
+          vScrollBarEnabled: true,
+          hScrollBarEnabled: true
+      });
+      api.openFrame({
+          name: 'public_list_footer',
+          url: './public_list_footer.html',
+          rect: {
+              x: 0,
+              y: footerH - 25,
+              w: 'auto',
+              h: 65
+          },
+          pageParam: {
+              name: 'test'
+          },
+          bounces: true,
+          bgColor: 'rgba(0,0,0,0)',
+          vScrollBarEnabled: true,
+          hScrollBarEnabled: true
+      });
     };
-
+    function openUser () {
+      api.openWin({
+          name: 'public_personal',
+          url: './public_personal.html',
+          pageParam: {
+              name: 'test'
+          }
+      });
+    }
+</script>
 </html>

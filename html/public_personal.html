@@ -59,7 +59,7 @@
 <body>
 <!--头部导航栏-->
 <header id="header">
-    <div class="left"><img src="../image/profile-back@3x.png" alt="cannot find"></div>
+    <div class="left"><img src="../image/profile-back@3x.png" alt="cannot find" tapmode onclick="backToPublic()"></div>
     <div class="right"><img src="../image/edit@3x.png" alt="cannot find"></div>
 </header>
 <!--头部结束-->
@@ -67,4 +67,38 @@
 
 
 </body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+      var header = $api.byId('header');
+      var headerH = $api.fixStatusBar(header);
+      api.openFrame({
+          name: 'public_personal_frame',
+          url: './public_personal_frame.html',
+          rect: {
+              x: 0,
+              y: headerH,
+              w: 'auto',
+              h: 'auto'
+          },
+          pageParam: {
+              name: 'test'
+          },
+          bounces: true,
+          bgColor: 'rgba(0,0,0,0)',
+          vScrollBarEnabled: true,
+          hScrollBarEnabled: true
+      });
+    };
+    function backToPublic () {
+      api.openWin({
+          name: 'public_list',
+          url: './public_list.html',
+          slidBackEnabled: false,
+          pageParam: {
+              name: 'test'
+          }
+      });
+    }
+</script>
 </html>

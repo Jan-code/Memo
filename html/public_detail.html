@@ -104,7 +104,7 @@
 <body>
 <!--头部导航栏-->
 <header id="header">
-    <div class="back"><img src="../image/back.png" alt="cannot find"></div>
+    <div class="back"><img src="../image/back.png" alt="cannot find" tapmode onclick="bockToPublicList()"></div>
     <div class="left"><img src="../image/search.png" alt="cannot find"></div>
     <div class="right"><img src="../image/user.png" alt="cannot find"></div>
 </header>
@@ -118,4 +118,39 @@
 </footer>
 <!--底部结束-->
 </body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+      var header = $api.byId('header');
+      $api.fixStatusBar(header);
+      var headerH = $api.offset(header).h;
+      api.openFrame({
+          name: 'public_detail_frame',
+          url: './public_detail_frame.html',
+          rect: {
+              x: 0,
+              y: headerH,
+              w: 'auto',
+              h: 'auto'
+          },
+          pageParam: {
+              name: 'test'
+          },
+          bounces: true,
+          bgColor: 'rgba(0,0,0,0)',
+          vScrollBarEnabled: true,
+          hScrollBarEnabled: true
+      });
+    };
+    function bockToPublicList () {
+      api.openWin({
+          name: 'public_list',
+          url: './public_list.html',
+          slidBackEnabled: false,
+          pageParam: {
+              name: 'test'
+          }
+      });
+    }
+</script>
 </html>

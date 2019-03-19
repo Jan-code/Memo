@@ -141,7 +141,7 @@
     <p>LOGIN</p>
 </div>
 <!--注册按钮-->
-<div class="register">
+<div class="register" tapmode onclick="toRegister()">
     <p>REGISTER</p>
 </div>
 <!--其他登陆方式-->
@@ -157,15 +157,48 @@
   };
   function logInto () {
     var isLogin = true;
+    api.ajax({
+        url: 'http://106.14.147.66:8088/login',
+        method: 'post',
+        dataType: 'text',
+        headers: {
+            "X-APICloud-AppId": "A6093794055284",
+            "X-APICloud-AppKey": "5D8906F1-4DF6-B824-0512-5C73FD8482AF"
+        },
+        data: {
+            values: {
+              account:'abcdefg',
+              password:'123456'
+            }
+        }
+    },function(ret, err){
+        if (ret) {
+            alert( JSON.stringify( ret ) );
+        } else {
+            alert( JSON.stringify( err ) );
+        }
+    });
+
     if (isLogin) {
       api.openWin({
         name: 'label',
         url: './label.html',
+        slidBackEnabled: false,
         pageParam: {
           name: 'test'
         }
       });
     }
+  }
+  function toRegister () {
+    api.openWin({
+        name: 'register',
+        url: './register.html',
+        pageParam: {
+            name: 'test'
+        }
+    });
+
   }
 </script>
 </html>
