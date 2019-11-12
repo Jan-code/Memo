@@ -91,39 +91,54 @@
         <li class="classify_specific">
             <p class="classify_title">娱乐</p>
             <ul class="checklist">
-                <li class="item"><label><input type="checkbox" name="concert" /><p>演唱会</p></label></li><li class="item"><label><input type="checkbox" name="music" /><p>音乐</p></label></li><li class="item"><label><input type="checkbox" name="film" /><p>电影</p></label></li><li class="item"><label><input type="checkbox" name="food" /><p>美食</p></label></li>
+                <li class="item"><label><input type="checkbox" id="concert" /><p>演唱会</p></label></li>
+                <li class="item"><label><input type="checkbox" id="music" /><p>音乐</p></label></li>
+                <li class="item"><label><input type="checkbox" id="film" /><p>电影</p></label></li>
+                <li class="item"><label><input type="checkbox" id="food" /><p>美食</p></label></li>
             </ul>
         </li>
         <li class="classify_specific">
             <p class="classify_title">健康</p>
             <ul class="checklist">
-                <li class="item"><label><input type="checkbox" name="nightRunning" /><p>夜跑</p></label></li><li class="item"><label><input type="checkbox" name="fitness" /><p>健身</p></label></li><li class="item"><label><input type="checkbox" name="aerobics" /><p>有氧运动</p></label></li><li class="item"><label><input type="checkbox" name="swim" /><p>游泳</p></label></li><li class="item"><label><input type="checkbox" name="yoga" /><p>瑜伽</p></label></li>
+                <li class="item">
+                  <label><input type="checkbox" id="nightRunning" /><p>夜跑</p></label>
+                </li>
+                <li class="item"><label><input type="checkbox" id="fitness" /><p>健身</p></label></li>
+                <li class="item"><label><input type="checkbox" id="aerobics" /><p>有氧运动</p></label></li>
+                <li class="item"><label><input type="checkbox" id="swim" /><p>游泳</p></label></li>
+                <li class="item"><label><input type="checkbox" id="yoga" /><p>瑜伽</p></label></li>
             </ul>
         </li>
         <li class="classify_specific">
             <p class="classify_title">学习效率</p>
             <ul class="checklist">
-                <li class="item"><label><input type="checkbox" name="book" /><p>读书</p></label></li><li class="item"><label><input type="checkbox" name="efficientyTool" /><p>效率工具</p></label></li><li class="item"><label><input type="checkbox" name="psychology" /><p>心理</p></label></li>
+                <li class="item"><label><input type="checkbox" id="book" /><p>读书</p></label></li>
+                <li class="item"><label><input type="checkbox" id="efficientyTool" /><p>效率工具</p></label></li>
+                <li class="item"><label><input type="checkbox" id="psychology" /><p>心理</p></label></li>
             </ul>
         </li>
 
         <li class="classify_specific">
             <p class="classify_title">学习效率</p>
             <ul class="checklist">
-                <li class="item"><label><input type="checkbox" name="book" /><p>读书</p></label></li><li class="item"><label><input type="checkbox" name="efficientyTool" /><p>效率工具</p></label></li><li class="item"><label><input type="checkbox" name="psychology" /><p>心理</p></label></li>
+                <li class="item"><label><input type="checkbox" name="book" /><p>读书</p></label></li>
+                <li class="item"><label><input type="checkbox" name="efficientyTool" /><p>效率工具</p></label></li>
+                <li class="item"><label><input type="checkbox" name="psychology" /><p>心理</p></label></li>
             </ul>
         </li>
 
         <li class="classify_specific">
             <p class="classify_title">学习效率</p>
             <ul class="checklist">
-                <li class="item"><label><input type="checkbox" name="book" /><p>读书</p></label></li><li class="item"><label><input type="checkbox" name="efficientyTool" /><p>效率工具</p></label></li><li class="item"><label><input type="checkbox" name="psychology" /><p>心理</p></label></li>
+                <li class="item"><label><input type="checkbox" name="book" /><p>读书</p></label></li>
+                <li class="item"><label><input type="checkbox" name="efficientyTool" /><p>效率工具</p></label></li>
+                <li class="item"><label><input type="checkbox" name="psychology" /><p>心理</p></label></li>
             </ul>
         </li>
     </ul>
 </div>
 <div class="bottom"></div>
-<footer tapmode onclick="finishChoose();">
+<footer tapmode onclick="finishChoose()">
     <p>开始阅读</p>
 </footer>
 </body>
@@ -133,17 +148,95 @@
 
   };
   function finishChoose () {
-    var choosed = true;
-    if (choosed) {
-      api.openWin({
-        name: 'private_list',
-        url: './private_list.html',
-        slidBackEnabled: false,
-        pageParam: {
-          name: 'test'
-        }
+      let tags = [];
+      const concert = document.getElementById('concert')
+      if(concert.checked) {
+        tags.push('演唱会')
+      }
+      const music = document.getElementById('music')
+      if(music.checked) {
+        tags.push('音乐')
+      }
+      const film = document.getElementById('film')
+      if(film.checked) {
+        tags.push('电影')
+      }
+      const food = document.getElementById('food')
+      if(food.checked) {
+        tags.push('美食')
+      }
+      const nightRunning = document.getElementById('nightRunning')
+      if(nightRunning.checked) {
+        tags.push('夜跑')
+      }
+      const fitness = document.getElementById('fitness')
+      if(fitness.checked) {
+        tags.push('健身')
+      }
+      const aerobics = document.getElementById('aerobics')
+      if(aerobics.checked) {
+        tags.push('有氧运动')
+      }
+      const swim = document.getElementById('swim')
+      if(swim.checked) {
+        tags.push('游泳')
+      }
+      const yoga = document.getElementById('yoga')
+      if(yoga.checked) {
+        tags.push('瑜伽')
+      }
+      const book = document.getElementById('book')
+      if(book.checked) {
+        tags.push('读书')
+      }
+      const efficientyTool = document.getElementById('efficientyTool')
+      if(efficientyTool.checked) {
+        tags.push('效率工具')
+      }
+      const psychology = document.getElementById('psychology')
+      if(psychology.checked) {
+        tags.push('心理')
+      }
+
+      alert( tags );
+      api.ajax({
+          url: 'http://106.14.147.66:8088/user/tags',
+          method: 'post',
+          headers: {
+              "Content-Type": "application/json",
+          },
+          data: {
+              body: {
+                "userId": "131",
+                "tags": tags
+              }
+          }
+      },function(ret, err){
+          if (ret) {
+            alert( JSON.stringify( ret ) );
+          } else {
+              alert( JSON.stringify( err ) );
+          }
       });
-    }
+
+      // $api.post('http://106.14.147.66:8088/user/tags',{
+      //   body: {
+      //     "userId": "131",
+      //     "tags": tags
+      //   }
+      // },function(ret){
+      //   alert(ret);
+      // },'json');
+
+      // api.openWin({
+      //   name: 'sliding',
+      //   url: './sliding.html',
+      //   slidBackEnabled: false,
+      //   pageParam: {
+      //     name: 'test'
+      //   }
+      // });
   }
 </script>
 </html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  

@@ -42,7 +42,8 @@
             margin-top: -15px;
             width: 30px;
             height: 30px;
-            background: url("./../image/phone.png");
+            background: url("./../image/user.png");
+            background-size: 30px 30px;
         }
         .password .password_img{
             position: absolute;
@@ -112,16 +113,16 @@
     <div class="username">
         <div class="phone_img"></div>
         <!--设置为只能输入数字-->
-        <input type="text" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+        <input type="text" value="" id="username">
     </div>
     <div class="password">
         <div class="password_img"></div>
         <!--验证码只能输入数字-->
-        <input type="text" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+        <input type="password" value="" id="password">
     </div>
 </div>
 <!--登陆按钮-->
-<div class="login_logo" tapmode onclick="logInto();">
+<div class="login_logo" tapmode onclick="fnRegister();">
     <p>REGISTER</p>
 </div>
 <!--其他登陆方式-->
@@ -135,5 +136,44 @@
     apiready = function(){
 
     };
+    function fnRegister () {
+      var username = $api.byId('username');
+      var usernameValue = username.value;
+      var password = $api.byId('password');
+      var passwordValue = password.value;
+
+      api.ajax({
+          url: 'http://106.14.147.66:8088/user',
+          method: 'post',
+          headers: {
+              "Content-Type": "application/json",
+          },
+          data: {
+              body: {
+                "account": usernameValue,
+                "password": passwordValue
+              }
+          }
+      },function(ret, err){
+          if (ret) {
+            api.alert({
+                title: '提示',
+                msg: '注册成功,返回登录页？',
+            }, function(ret, err){
+                if( ret ){
+                     api.execScript({
+                         name: 'login',
+                         script: 'fnSetUsername(\"' + usernameValue + '"\);'
+                     });
+                     api.closeWin();
+                }else{
+                     alert( JSON.stringify( err ) );
+                }
+            });
+          } else {
+              api.alert( JSON.stringify( err ) );
+          }
+      });
+    }
 </script>
 </html>

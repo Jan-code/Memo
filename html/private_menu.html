@@ -41,7 +41,7 @@
         header .center{
             position: relative;
             top: 50%;
-            left: 50%;
+            left: 40%;
             margin-top: -22px;
             margin-left: -22px;
             width: 45px;
@@ -70,7 +70,7 @@
             color: #ffffff;
 
         }
-        .menu_list .memo_all{
+        .menu_list .selected{
             background-color: #fff;
             color: black;
         }
@@ -115,19 +115,73 @@
     <!--头部结束-->
 
     <!--内容开始-->
-    <div class="menu_list">
-        <div class="memo_all"><img src="./../image/memo-all-b@3x.png" alt=""><p>MEMO·ALL</p>
-            <img class="back" src="./../image/back-1@3x.png" alt="">
-        </div>
-        <div class="memo_alarm"><img src="./../image/momo-alarm-a@3x.png" alt=""><p>MEMO·ALARM</p></div>
-        <div class="memo_note"><img src="./../image/momo-note-a@3x.png" alt=""><p>MEMO·NOTE</p></div>
-        <div class="memo_trash"><img src="./../image/trash-a@3x.png" alt=""><p>TRASH</p></div>
-    </div>
+    <nav id="nav">
+      <div class="menu_list">
+          <div id="all" class="menus selected" tapmode="selected" onclick="fnSetMenuIndex(0);"><img src="./../image/memo-all-a@3x.png" alt=""><p>MEMO·ALL</p></div>
+          <div id="alarm" class="menus" tapmode="selected" onclick="fnSetMenuIndex(1);"><img src="./../image/momo-alarm-a@3x.png" alt=""><p>MEMO·ALARM</p></div>
+          <div id="note" class="menus" tapmode="selected" onclick="fnSetMenuIndex(2);"><img src="./../image/momo-note-a@3x.png" alt=""><p>MEMO·NOTE</p></div>
+          <div id="trash" class="menus" tapmode="selected" onclick="fnSetMenuIndex(3);"><img src="./../image/trash-a@3x.png" alt=""><p>TRASH</p></div>
+      </div>
+    </nav>
     <!--内容结束-->
 </div>
-
 <div class="set"></div>
 
-
 </body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+apiready = function() {
+
+
+};
+function fnSetMenuIndex(index_) {
+  var all = $api.byId('all');
+  var alarm = $api.byId('alarm');
+  var note = $api.byId('note');
+  var trash = $api.byId('trash');
+  var change = "pass";
+  if (index_ == 0) {
+      $api.addCls(all, 'selected');
+      $api.removeCls(alarm, 'selected');
+      $api.removeCls(note, 'selected');
+      $api.removeCls(trash, 'selected');
+      change = "pass";
+  }
+  else if(index_ == 1) {
+    $api.removeCls(all, 'selected');
+    $api.addCls(alarm, 'selected');
+    $api.removeCls(note, 'selected');
+    $api.removeCls(trash, 'selected');
+    change = "alarm";
+  }
+  else if(index_ == 2) {
+    $api.removeCls(all, 'selected');
+    $api.removeCls(alarm, 'selected');
+    $api.addCls(note, 'selected');
+    $api.removeCls(trash, 'selected');
+    change = "pass";
+  }
+  else if(index_ == 3) {
+    $api.removeCls(all, 'selected');
+    $api.removeCls(alarm, 'selected');
+    $api.removeCls(note, 'selected');
+    $api.addCls(trash, 'selected');
+    change = "pass";
+  }
+  api.execScript({
+      name: 'private_list',
+      script: 'fnSetOpenListOrAlarm(\"' + change + '"\);'
+  });
+  api.closeSlidPane();
+}
+function fnSetNavMenuSelected(index_) {
+    for (var i = 0; i < menus.length; i++) {
+        if (index_ == i) {
+            $api.addCls(menus[i], 'selected');
+        } else {
+            $api.removeCls(menus[i], 'selected');
+        }
+    }
+}
+</script>
 </html>

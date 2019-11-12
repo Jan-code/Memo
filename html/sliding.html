@@ -1,0 +1,33 @@
+<script type="text/javascript" src="./script/api.js"></script>
+<script type="text/javascript">
+    apiready = function(){
+      api.openSlidLayout ({
+          type: 'left',
+          fixedPaneStyle: {
+            rightEdge: 60
+          },
+          slidPaneStyle: {
+            leftEdge: 80
+          },
+          fixedPane: {
+              name: 'private_menu',
+              url: './private_menu.html',
+              bgColor: '#fff',
+              bounces: false,
+              vScrollBarEnabled: true,
+              hScrollBarEnabled: false
+          },
+          slidPane: {
+              name: 'private_list',
+              url: './private_list.html',
+              bgColor: '#fff',
+              bounces: false,
+              vScrollBarEnabled: true,
+              hScrollBarEnabled: false
+          }
+      }, function(ret, err){
+          //
+      });
+      api.unlockSlidPane();
+    };
+</script>

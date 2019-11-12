@@ -42,7 +42,8 @@
             margin-top: -15px;
             width: 30px;
             height: 30px;
-            background: url("./../image/phone.png");
+            background: url("./../image/user.png");
+            background-size: 30px 30px;
         }
         .password .password_img{
             position: absolute;
@@ -127,17 +128,16 @@
 <div class="login">
     <div class="username">
         <div class="phone_img"></div>
-        <!--设置为只能输入数字-->
-        <input type="text" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+        <input type="text" id="username">
     </div>
     <div class="password">
         <div class="password_img"></div>
         <!--验证码只能输入数字-->
-        <input type="text" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+        <input type="password" id="password">
     </div>
 </div>
 <!--登陆按钮-->
-<div class="login_logo" tapmode onclick="logInto();">
+<div class="login_logo" tapmode onclick="logInto()">
     <p>LOGIN</p>
 </div>
 <!--注册按钮-->
@@ -154,41 +154,48 @@
 <script type="text/javascript">
   apiready = function(){
 
-  };
+  }
   function logInto () {
-    var isLogin = true;
-    api.ajax({
-        url: 'http://106.14.147.66:8088/login',
-        method: 'post',
-        dataType: 'text',
-        headers: {
-            "X-APICloud-AppId": "A6093794055284",
-            "X-APICloud-AppKey": "5D8906F1-4DF6-B824-0512-5C73FD8482AF"
-        },
-        data: {
-            values: {
-              account:'abcdefg',
-              password:'123456'
-            }
-        }
-    },function(ret, err){
-        if (ret) {
-            alert( JSON.stringify( ret ) );
-        } else {
-            alert( JSON.stringify( err ) );
-        }
-    });
+    const username = $api.byId('username');
+    const usernameValue = username.value;
+    const password = $api.byId('password');
+    const passwordValue = password.value;
 
-    if (isLogin) {
-      api.openWin({
-        name: 'label',
-        url: './label.html',
-        slidBackEnabled: false,
-        pageParam: {
-          name: 'test'
-        }
-      });
-    }
+    api.openWin({
+      name: 'label',
+      url: './label.html',
+      slidBackEnabled: false,
+      pageParam: {
+        name: 'test'
+      }
+    });
+    // api.ajax({
+    //   url: 'http://106.14.147.66:8088/user',
+    //   method: 'get',
+    //   headers: {
+    //       "Content-Type": "application/json",
+    //   },
+    //   data: {
+    //       body: {
+    //         "account": usernameValue,
+    //         "password": passwordValue
+    //       }
+    //   }
+    // },function(ret, err){
+    //     if (ret) {
+    //         api.alert({ msg: JSON.stringify(ret) });
+    //         api.openWin({
+    //           name: 'label',
+    //           url: './label.html',
+    //           slidBackEnabled: false,
+    //           pageParam: {
+    //             name: 'test'
+    //           }
+    //         });
+    //     } else {
+    //       api.alert({ msg: JSON.stringify(err) });
+    //     }
+    // });
   }
   function toRegister () {
     api.openWin({
@@ -198,7 +205,10 @@
             name: 'test'
         }
     });
-
+  }
+  function fnSetUsername(name) {
+    var username = $api.byId('username');
+    $api.val(username, name);
   }
 </script>
 </html>

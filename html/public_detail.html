@@ -114,7 +114,7 @@
 <footer id="footer">
     <div class="joinin"><img src="../image/plus.png" alt="cannot find"></div>
     <div class="comment"><img src="../image/comment.png" alt="cannot find"></div>
-    <div class="collect"><img src="../image/collect.png" alt="cannot find"></div>
+    <div class="collect"><img src="../image/collect.png" alt="cannot find" tapmode onclick="openUser();"></div>
 </footer>
 <!--底部结束-->
 </body>
@@ -124,6 +124,7 @@
       var header = $api.byId('header');
       $api.fixStatusBar(header);
       var headerH = $api.offset(header).h;
+      var frameH = api.winHeight - headerH - $api.offset($api.dom('footer')).h;
       api.openFrame({
           name: 'public_detail_frame',
           url: './public_detail_frame.html',
@@ -131,7 +132,7 @@
               x: 0,
               y: headerH,
               w: 'auto',
-              h: 'auto'
+              h: frameH
           },
           pageParam: {
               name: 'test'
@@ -147,6 +148,15 @@
           name: 'public_list',
           url: './public_list.html',
           slidBackEnabled: false,
+          pageParam: {
+              name: 'test'
+          }
+      });
+    };
+    function openUser () {
+      api.openWin({
+          name: 'public_personal',
+          url: './public_personal.html',
           pageParam: {
               name: 'test'
           }

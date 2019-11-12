@@ -114,7 +114,7 @@
 </body>
 <script type="text/javascript" src="../script/api.js"></script>
 <script type="text/javascript">
-  apiready = function(){
+    apiready = function(){
       var header = $api.byId('header');
       var headerH = $api.fixStatusBar(header);
       api.openFrame({
@@ -151,6 +151,53 @@
           hScrollBarEnabled: false
       });
   };
+  function fnSetOpenListOrAlarm(change) {
+    var header = $api.byId('header');
+    var headerH = $api.fixStatusBar(header);
+    api.closeFrame();
+    if(change=="pass"){
+      api.closeFrame({
+          name: 'private_alarm_frame'
+      });
+      api.openFrame({
+          name: 'private_list_frame',
+          url: './private_list_frame.html',
+          rect: {
+              x: 0,
+              y: headerH,
+              w: 'auto',
+              h: 'auto'
+          },
+          pageParam: {
+              name: 'test'
+          },
+          bounces: true,
+          vScrollBarEnabled: true,
+          hScrollBarEnabled: true
+      });
+    }else {
+      api.closeFrame({
+          name: 'private_list_frame'
+      });
+      api.openFrame({
+          name: 'private_alarm_frame',
+          url: './private_alarm_frame.html',
+          rect: {
+              x: 0,
+              y: headerH,
+              w: 'auto',
+              h: 'auto'
+          },
+          pageParam: {
+              name: 'test'
+          },
+          bounces: true,
+          vScrollBarEnabled: true,
+          hScrollBarEnabled: true
+      });
+    }
+
+  }
   function toPublicList () {
     api.openWin({
       name: 'public_list',

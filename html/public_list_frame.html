@@ -335,11 +335,32 @@
 <!--内容结束-->
 
 </body>
-<script type="text/javascript" src="./script/api.js"></script>
+
+<script type="text/javascript" src="../script/api.js"></script>
 <script type="text/javascript">
     apiready = function() {
-
+      this.getData();
     };
+    function getData() {
+      api.ajax({
+          url: 'http://106.14.147.66:8088/public',
+          method: 'get',
+          headers: {
+              "Content-Type": "application/json",
+          },
+          data: {
+              body: {
+                "publicId": "35",
+              }
+          }
+      },function(ret, err){
+          if (ret) {
+            api.alert( JSON.stringify( ret ) );
+          } else {
+              api.alert( JSON.stringify( err ) );
+          }
+      });
+    }
     function seeDetail () {
       api.openWin({
           name: 'public_detail',
@@ -350,5 +371,6 @@
       });
 
     }
+</script>
 
 </html>
