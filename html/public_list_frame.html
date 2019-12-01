@@ -249,8 +249,8 @@
     <div class="top">
         <div class="straightLine"></div>
         <div class="text">
-            <div class="date">25th Dec.</div>
-            <div class="weekday">Friday</div>
+            <div class="date">11月12日</div>
+            <div class="weekday">周二</div>
         </div>
     </div>
     <!--内容顶部结束-->
@@ -263,18 +263,15 @@
                 <div class="postedDate">11/09</div>
             </div>
             <div class="item_Content">
-                <div class="event_Title" tapmode onclick="seeDetail();">Skills: How to make background darker in daylight?</div>
-                <div class="event_Tag"><img src="../image/tag.png" alt="cannot find">skills,photographic</div>
-                <div class="event_Time"><img src="../image/time.png" alt="cannot find">15 Nov</div>
-                <div class="event_Address"><img src="../image/address.png" alt="cannot find">shanghai,China</div>
+                <div class="event_Title">有人明天去环球港吗？</div>
+                <div class="event_Tag"><img src="../image/tag.png" alt="cannot find">购物</div>
+                <div class="event_Time"><img src="../image/time.png" alt="cannot find">11/10</div>
+                <div class="event_Address"><img src="../image/address.png" alt="cannot find">上海，中国</div>
             </div>
             <div class="item_Bottom">
                 <div class="addFriend">
                     <img src="../image/chatHead2.png" alt="cannot find">
-                    <img src="../image/chatHead3.png" alt="cannot find">
-                    <img src="../image/chatHead4.png" alt="cannot find">
-                    <img src="../image/chatHead5.png" alt="cannot find">
-                    has joined
+                    参与
                 </div>
                 <div class="comment"><img src="../image/comment.png" alt="cannot find"></div>
                 <div class="collect"><img src="../image/collect.png" alt="cannot find"></div>
@@ -282,23 +279,22 @@
         </div>
         <div class="item">
             <div class="item_head">
-                <div class="chatHead"><img src="../image/chatHead1.png" alt="cannot find"></div>
-                <div class="username">Abby</div>
-                <div class="postedDate">11/09</div>
+                <div class="chatHead"><img src="../image/chatHead3.png" alt="cannot find"></div>
+                <div class="username">Jan</div>
+                <div class="postedDate">11/11</div>
             </div>
             <div class="item_Content">
-                <div class="event_Title">Skills: How to make background darker in daylight?</div>
-                <div class="event_Tag"><img src="../image/tag.png" alt="cannot find">skills,photographic</div>
-                <div class="event_Time"><img src="../image/time.png" alt="cannot find">15 Nov</div>
-                <div class="event_Address"><img src="../image/address.png" alt="cannot find">shanghai,China</div>
+                <div class="event_Title">双十一打算省钱，跑步有人一起吗？</div>
+                <div class="event_Tag"><img src="../image/tag.png" alt="cannot find">运动</div>
+                <div class="event_Time"><img src="../image/time.png" alt="cannot find">11/11</div>
+                <div class="event_Address"><img src="../image/address.png" alt="cannot find">华东师范大学，上海</div>
             </div>
             <div class="item_Bottom">
                 <div class="addFriend">
                     <img src="../image/chatHead2.png" alt="cannot find">
-                    <img src="../image/chatHead3.png" alt="cannot find">
                     <img src="../image/chatHead4.png" alt="cannot find">
                     <img src="../image/chatHead5.png" alt="cannot find">
-                    has joined
+                    参与
                 </div>
                 <div class="comment"><img src="../image/comment.png" alt="cannot find"></div>
                 <div class="collect"><img src="../image/collect.png" alt="cannot find"></div>
@@ -306,23 +302,20 @@
         </div>
         <div class="item">
             <div class="item_head">
-                <div class="chatHead"><img src="../image/chatHead1.png" alt="cannot find"></div>
-                <div class="username">Abby</div>
-                <div class="postedDate">11/09</div>
+                <div class="chatHead"><img src="../image/profile-photo.png" alt="cannot find"></div>
+                <div class="username">小刘吃饭</div>
+                <div class="postedDate">11/12</div>
             </div>
             <div class="item_Content">
-                <div class="event_Title">Skills: How to make background darker in daylight?</div>
-                <div class="event_Tag"><img src="../image/tag.png" alt="cannot find">skills,photographic</div>
-                <div class="event_Time"><img src="../image/time.png" alt="cannot find">15 Nov</div>
-                <div class="event_Address"><img src="../image/address.png" alt="cannot find">shanghai,China</div>
+                <div class="event_Title" tapmode onclick="seeDetail();">海上钢琴师要上映了，有没有想一起去的朋友?</div>
+                <div class="event_Tag"><img src="../image/tag.png" alt="cannot find">电影</div>
+                <div class="event_Time"><img src="../image/time.png" alt="cannot find">11/15</div>
+                <div class="event_Address"><img src="../image/address.png" alt="cannot find">中山公园，上海</div>
             </div>
             <div class="item_Bottom">
                 <div class="addFriend">
-                    <img src="../image/chatHead2.png" alt="cannot find">
-                    <img src="../image/chatHead3.png" alt="cannot find">
-                    <img src="../image/chatHead4.png" alt="cannot find">
-                    <img src="../image/chatHead5.png" alt="cannot find">
-                    has joined
+                    <img src="../image/fly.png" alt="cannot find">
+                    参与
                 </div>
                 <div class="comment"><img src="../image/comment.png" alt="cannot find"></div>
                 <div class="collect"><img src="../image/collect.png" alt="cannot find"></div>
@@ -344,7 +337,7 @@
     function getData() {
       api.ajax({
           url: 'http://106.14.147.66:8088/public',
-          method: 'get',
+          method: 'post',
           headers: {
               "Content-Type": "application/json",
           },
@@ -355,9 +348,9 @@
           }
       },function(ret, err){
           if (ret) {
-            api.alert( JSON.stringify( ret ) );
+            // api.alert( JSON.stringify( ret ) );
           } else {
-              api.alert( JSON.stringify( err ) );
+              // api.alert( JSON.stringify( err ) );
           }
       });
     }

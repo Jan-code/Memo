@@ -1,11 +1,17 @@
 /*
  * APICloud JavaScript Library
- * Copyright (c) 2018 apicloud.com
+ * Copyright (c) 2014 apicloud.com
  */
 (function(window){
     var u = {};
     var isAndroid = (/android/gi).test(navigator.appVersion);
-	var uzStorage = isAndroid ? os.localStorage() : window.localStorage;
+    var uzStorage = function(){
+        var ls = window.localStorage;
+        if(isAndroid){
+           ls = os.localStorage();
+        }
+        return ls;
+    };
     function parseArguments(url, data, fnSuc, dataType) {
         if (typeof(data) == 'function') {
             dataType = fnSuc;
@@ -22,10 +28,7 @@
             fnSuc: fnSuc,
             dataType: dataType
         };
-    };
-	function _worn(fnstr){
-		console.warn('$api.' + fnstr + ' Function need el param, el param must be DOM Element');
-	};
+    }
     u.trim = function(str){
         if(String.prototype.trim){
             return str == null ? "" : String.prototype.trim.call(str);
@@ -54,7 +57,7 @@
     };
     u.addEvt = function(el, name, fn, useCapture){
         if(!u.isElement(el)){
-            _worn('addEvt');
+            console.warn('$api.addEvt Function need el param, el param must be DOM Element');
             return;
         }
         useCapture = useCapture || false;
@@ -64,7 +67,7 @@
     };
     u.rmEvt = function(el, name, fn, useCapture){
         if(!u.isElement(el)){
-            _worn('rmEvt');
+            console.warn('$api.rmEvt Function need el param, el param must be DOM Element');
             return;
         }
         useCapture = useCapture || false;
@@ -74,7 +77,7 @@
     };
     u.one = function(el, name, fn, useCapture){
         if(!u.isElement(el)){
-            _worn('one');
+            console.warn('$api.one Function need el param, el param must be DOM Element');
             return;
         }
         useCapture = useCapture || false;
@@ -113,7 +116,7 @@
     u.first = function(el, selector){
         if(arguments.length === 1){
             if(!u.isElement(el)){
-                _worn('first');
+                console.warn('$api.first Function need el param, el param must be DOM Element');
                 return;
             }
             return el.children[0];
@@ -125,7 +128,7 @@
     u.last = function(el, selector){
         if(arguments.length === 1){
             if(!u.isElement(el)){
-                _worn('last');
+                console.warn('$api.last Function need el param, el param must be DOM Element');
                 return;
             }
             var children = el.children;
@@ -143,7 +146,7 @@
     };
     u.prev = function(el){
         if(!u.isElement(el)){
-            _worn('prev');
+            console.warn('$api.prev Function need el param, el param must be DOM Element');
             return;
         }
         var node = el.previousSibling;
@@ -154,7 +157,7 @@
     };
     u.next = function(el){
         if(!u.isElement(el)){
-            _worn('next');
+            console.warn('$api.next Function need el param, el param must be DOM Element');
             return;
         }
         var node = el.nextSibling;
@@ -165,14 +168,14 @@
     };
     u.closest = function(el, selector){
         if(!u.isElement(el)){
-            _worn('closest');
+            console.warn('$api.closest Function need el param, el param must be DOM Element');
             return;
         }
         var doms, targetDom;
         var isSame = function(doms, el){
             var i = 0, len = doms.length;
             for(i; i<len; i++){
-                if(doms[i].isSameNode(el)){
+                if(doms[i].isEqualNode(el)){
                     return doms[i];
                 }
             }
@@ -210,7 +213,7 @@
 
             return mark;
         }
-
+        
     };
     u.remove = function(el){
         if(el && el.parentNode){
@@ -219,7 +222,7 @@
     };
     u.attr = function(el, name, value){
         if(!u.isElement(el)){
-            _worn('attr');
+            console.warn('$api.attr Function need el param, el param must be DOM Element');
             return;
         }
         if(arguments.length == 2){
@@ -231,7 +234,7 @@
     };
     u.removeAttr = function(el, name){
         if(!u.isElement(el)){
-            _worn('removeAttr');
+            console.warn('$api.removeAttr Function need el param, el param must be DOM Element');
             return;
         }
         if(arguments.length === 2){
@@ -240,21 +243,21 @@
     };
     u.hasCls = function(el, cls){
         if(!u.isElement(el)){
-            _worn('hasCls');
+            console.warn('$api.hasCls Function need el param, el param must be DOM Element');
             return;
         }
-        if(el.classList){
-            return el.classList.contains(cls);
+        if(el.className.indexOf(cls) > -1){
+            return true;
         }else{
-            return new RegExp('(^|\\s)' + cls + '(\\s|$)').test(el.className);
+            return false;
         }
     };
     u.addCls = function(el, cls){
         if(!u.isElement(el)){
-            _worn('addCls');
+            console.warn('$api.addCls Function need el param, el param must be DOM Element');
             return;
         }
-        if(el.classList){
+        if('classList' in el){
             el.classList.add(cls);
         }else{
             var preCls = el.className;
@@ -265,10 +268,10 @@
     };
     u.removeCls = function(el, cls){
         if(!u.isElement(el)){
-            _worn('removeCls');
+            console.warn('$api.removeCls Function need el param, el param must be DOM Element');
             return;
         }
-        if(el.classList){
+        if('classList' in el){
             el.classList.remove(cls);
         }else{
             var preCls = el.className;
@@ -279,10 +282,10 @@
     };
     u.toggleCls = function(el, cls){
         if(!u.isElement(el)){
-            _worn('toggleCls');
+            console.warn('$api.toggleCls Function need el param, el param must be DOM Element');
             return;
         }
-       if(el.classList){
+       if('classList' in el){
             el.classList.toggle(cls);
         }else{
             if(u.hasCls(el, cls)){
@@ -295,7 +298,7 @@
     };
     u.val = function(el, val){
         if(!u.isElement(el)){
-            _worn('val');
+            console.warn('$api.val Function need el param, el param must be DOM Element');
             return;
         }
         if(arguments.length === 1){
@@ -328,11 +331,11 @@
                     break;
             }
         }
-
+        
     };
     u.prepend = function(el, html){
         if(!u.isElement(el)){
-            _worn('prepend');
+            console.warn('$api.prepend Function need el param, el param must be DOM Element');
             return;
         }
         el.insertAdjacentHTML('afterbegin', html);
@@ -340,7 +343,7 @@
     };
     u.append = function(el, html){
         if(!u.isElement(el)){
-            _worn('append');
+            console.warn('$api.append Function need el param, el param must be DOM Element');
             return;
         }
         el.insertAdjacentHTML('beforeend', html);
@@ -348,7 +351,7 @@
     };
     u.before = function(el, html){
         if(!u.isElement(el)){
-            _worn('before');
+            console.warn('$api.before Function need el param, el param must be DOM Element');
             return;
         }
         el.insertAdjacentHTML('beforebegin', html);
@@ -356,7 +359,7 @@
     };
     u.after = function(el, html){
         if(!u.isElement(el)){
-            _worn('after');
+            console.warn('$api.after Function need el param, el param must be DOM Element');
             return;
         }
         el.insertAdjacentHTML('afterend', html);
@@ -364,7 +367,7 @@
     };
     u.html = function(el, html){
         if(!u.isElement(el)){
-            _worn('html');
+            console.warn('$api.html Function need el param, el param must be DOM Element');
             return;
         }
         if(arguments.length === 1){
@@ -376,7 +379,7 @@
     };
     u.text = function(el, txt){
         if(!u.isElement(el)){
-            _worn('text');
+            console.warn('$api.text Function need el param, el param must be DOM Element');
             return;
         }
         if(arguments.length === 1){
@@ -388,7 +391,7 @@
     };
     u.offset = function(el){
         if(!u.isElement(el)){
-            _worn('offset');
+            console.warn('$api.offset Function need el param, el param must be DOM Element');
             return;
         }
         var sl = Math.max(document.documentElement.scrollLeft, document.body.scrollLeft);
@@ -404,7 +407,7 @@
     };
     u.css = function(el, css){
         if(!u.isElement(el)){
-            _worn('css');
+            console.warn('$api.css Function need el param, el param must be DOM Element');
             return;
         }
         if(typeof css == 'string' && css.indexOf(':') > 0){
@@ -413,7 +416,7 @@
     };
     u.cssVal = function(el, prop){
         if(!u.isElement(el)){
-            _worn('cssVal');
+            console.warn('$api.cssVal Function need el param, el param must be DOM Element');
             return;
         }
         if(arguments.length === 2){
@@ -440,14 +443,16 @@
             }else{
                 v = 'str-'+ v;
             }
-            if(uzStorage){
-                uzStorage.setItem(key, v);
+            var ls = uzStorage();
+            if(ls){
+                ls.setItem(key, v);
             }
         }
     };
     u.getStorage = function(key){
-        if(uzStorage){
-            var v = uzStorage.getItem(key);
+        var ls = uzStorage();
+        if(ls){
+            var v = ls.getItem(key);
             if(!v){return;}
             if(v.indexOf('obj-') === 0){
                 v = v.slice(4);
@@ -458,36 +463,51 @@
         }
     };
     u.rmStorage = function(key){
-        if(uzStorage && key){
-            uzStorage.removeItem(key);
+        var ls = uzStorage();
+        if(ls && key){
+            ls.removeItem(key);
         }
     };
     u.clearStorage = function(){
-        if(uzStorage){
-            uzStorage.clear();
+        var ls = uzStorage();
+        if(ls){
+            ls.clear();
         }
     };
+
+   
+    /*by king*/
     u.fixIos7Bar = function(el){
-		if(isAndroid){
-			return 0;
-		}
-        return u.fixStatusBar(el);
+        if(!u.isElement(el)){
+            console.warn('$api.fixIos7Bar Function need el param, el param must be DOM Element');
+            return;
+        }
+        var strDM = api.systemType;
+        if (strDM == 'ios') {
+            var strSV = api.systemVersion;
+            var numSV = parseInt(strSV,10);
+            var fullScreen = api.fullScreen;
+            var iOS7StatusBarAppearance = api.iOS7StatusBarAppearance;
+            if (numSV >= 7 && !fullScreen && iOS7StatusBarAppearance) {
+                el.style.paddingTop = '20px';
+            }
+        }
     };
     u.fixStatusBar = function(el){
         if(!u.isElement(el)){
-            _worn('fixStatusBar');
-            return 0;
+            console.warn('$api.fixStatusBar Function need el param, el param must be DOM Element');
+            return;
         }
-        el.style.paddingTop = api.safeArea.top + 'px';
-        return el.offsetHeight;
-    };
-    u.fixTabBar = function(el){
-        if(!u.isElement(el)){
-            _worn('fixTabBar');
-            return 0;
+        var sysType = api.systemType;
+        if(sysType == 'ios'){
+            u.fixIos7Bar(el);
+        }else if(sysType == 'android'){
+            var ver = api.systemVersion;
+            ver = parseFloat(ver);
+            if(ver >= 4.4){
+                el.style.paddingTop = '25px';
+            }
         }
-        el.style.paddingBottom = api.safeArea.bottom + 'px';
-        return el.offsetHeight;
     };
     u.toast = function(title, text, time){
         var opts = {};
@@ -578,9 +598,10 @@
     };
 
 /*end*/
-
+    
 
     window.$api = u;
 
 })(window);
-                                                                                                                                                                                                                             
+
+
